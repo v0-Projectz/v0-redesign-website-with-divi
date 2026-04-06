@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import NextImage from "next/image"
 import { Image, Film, Video, Globe, Server, CheckCircle2, ArrowRight, Sparkles } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -12,7 +13,8 @@ const requirements = [
     subtitle: "(or select the add-on)",
     description: "High-resolution logos, professional headshots, and any specific branding graphics (layered .PSD or .AI files are preferred if available).",
     specs: ["High-resolution files", "Layered .PSD or .AI preferred", "Logo variations", "Professional headshots"],
-    highlight: false
+    highlight: true,
+    hasImage: true,
   },
   {
     id: 2,
@@ -21,7 +23,7 @@ const requirements = [
     subtitle: "(or select the add-on)",
     description: "Eye-catching, high-contrast images (1920 x 1080px) that clearly represent your episodes or categories at a glance.",
     specs: ["1920 x 1080px resolution", "High-contrast visuals", "Episode representations", "Category images"],
-    highlight: true
+    highlight: false
   },
   {
     id: 3,
@@ -98,56 +100,85 @@ export function RequirementsSection() {
               <div className="absolute -top-3 -left-3 h-8 w-8 rounded-full bg-background border border-border flex items-center justify-center z-10">
                 <span className="text-sm font-bold text-accent">{item.id}</span>
               </div>
-
-              <div className={cn(
-                "p-8",
-                item.highlight && "lg:flex lg:items-start lg:gap-8"
-              )}>
-                {/* Icon and Title */}
-                <div className={cn(
-                  "flex items-start gap-4 mb-6",
-                  item.highlight && "lg:mb-0 lg:flex-shrink-0 lg:w-1/2"
-                )}>
-                  <div className={cn(
-                    "h-14 w-14 rounded-xl border flex items-center justify-center flex-shrink-0 transition-all duration-300",
-                    activeItem === item.id
-                      ? "bg-accent/20 border-accent/30"
-                      : "bg-secondary/50 border-border/50 group-hover:bg-accent/10 group-hover:border-accent/20"
-                  )}>
-                    <item.icon className={cn(
-                      "h-7 w-7 transition-colors",
-                      activeItem === item.id ? "text-accent" : "text-muted-foreground group-hover:text-accent"
-                    )} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-1">
-                      {item.title}
-                    </h3>
-                    {item.subtitle && (
-                      <span className="text-sm text-accent">{item.subtitle}</span>
-                    )}
-                    <p className="text-muted-foreground mt-3 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Specs List */}
-                <div className={cn(
-                  "grid grid-cols-2 gap-3",
-                  item.highlight && "lg:flex-1"
-                )}>
-                  {item.specs.map((spec, specIndex) => (
-                    <div
-                      key={specIndex}
-                      className="flex items-center gap-2 px-3 py-2 rounded-lg bg-secondary/30 border border-border/30"
-                    >
-                      <CheckCircle2 className="h-4 w-4 text-accent flex-shrink-0" />
-                      <span className="text-sm text-foreground">{spec}</span>
+        {/* Card with optional image layout */}
+              {(item as any).hasImage ? (
+                <div className="flex flex-col lg:flex-row">
+                  {/* Left: text content */}
+                  <div className="p-8 flex flex-col justify-between flex-1">
+                    <div className="flex items-start gap-4 mb-6">
+                      <div className={cn(
+                        "h-14 w-14 rounded-xl border flex items-center justify-center flex-shrink-0 transition-all duration-300",
+                        activeItem === item.id
+                          ? "bg-accent/20 border-accent/30"
+                          : "bg-secondary/50 border-border/50 group-hover:bg-accent/10 group-hover:border-accent/20"
+                      )}>
+                        <item.icon className={cn(
+                          "h-7 w-7 transition-colors",
+                          activeItem === item.id ? "text-accent" : "text-muted-foreground group-hover:text-accent"
+                        )} />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold text-foreground mb-1">{item.title}</h3>
+                        {item.subtitle && <span className="text-sm text-accent">{item.subtitle}</span>}
+                        <p className="text-muted-foreground mt-3 leading-relaxed">{item.description}</p>
+                      </div>
                     </div>
-                  ))}
+                    <div className="grid grid-cols-2 gap-3">
+                      {item.specs.map((spec, specIndex) => (
+                        <div key={specIndex} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-secondary/30 border border-border/30">
+                          <CheckCircle2 className="h-4 w-4 text-accent flex-shrink-0" />
+                          <span className="text-sm text-foreground">{spec}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Right: image */}
+                  <div className="relative lg:w-80 h-56 lg:h-auto flex-shrink-0 overflow-hidden rounded-b-2xl lg:rounded-b-none lg:rounded-r-2xl">
+                    <NextImage
+                      src="/images/show-artwork.jpg"
+                      alt="Professional show artwork and branding design"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-card/40 via-transparent to-transparent lg:bg-gradient-to-l" />
+                    <div className="absolute bottom-4 left-4 lg:bottom-4 lg:left-auto lg:right-4 lg:text-right">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-accent/20 border border-accent/30 backdrop-blur-sm">
+                        <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                        <span className="text-xs font-medium text-accent">Branding Assets</span>
+                      </span>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="p-8">
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className={cn(
+                      "h-14 w-14 rounded-xl border flex items-center justify-center flex-shrink-0 transition-all duration-300",
+                      activeItem === item.id
+                        ? "bg-accent/20 border-accent/30"
+                        : "bg-secondary/50 border-border/50 group-hover:bg-accent/10 group-hover:border-accent/20"
+                    )}>
+                      <item.icon className={cn(
+                        "h-7 w-7 transition-colors",
+                        activeItem === item.id ? "text-accent" : "text-muted-foreground group-hover:text-accent"
+                      )} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-foreground mb-1">{item.title}</h3>
+                      {item.subtitle && <span className="text-sm text-accent">{item.subtitle}</span>}
+                      <p className="text-muted-foreground mt-3 leading-relaxed">{item.description}</p>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    {item.specs.map((spec, specIndex) => (
+                      <div key={specIndex} className="flex items-center gap-2 px-3 py-2 rounded-lg bg-secondary/30 border border-border/30">
+                        <CheckCircle2 className="h-4 w-4 text-accent flex-shrink-0" />
+                        <span className="text-sm text-foreground">{spec}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>

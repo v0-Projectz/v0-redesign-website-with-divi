@@ -38,7 +38,7 @@ export function Header() {
       )}
       style={isScrolled ? { backgroundColor: "rgba(13,13,15,0.92)", backdropFilter: "blur(18px)", WebkitBackdropFilter: "blur(18px)" } : undefined}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="w-full px-6 lg:px-12">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
