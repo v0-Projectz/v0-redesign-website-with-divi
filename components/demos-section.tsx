@@ -162,8 +162,8 @@ export function DemosSection() {
             </div>
           </div>
 
-          {/* Side Stack (Right Side) - Clickable Cards with vertical scroll */}
-          <div className="lg:col-span-5 flex flex-col gap-4 lg:gap-4 max-h-[364px] overflow-y-auto pr-2 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-border/50 hover:scrollbar-thumb-border">
+          {/* Side Stack (Right Side) - Clickable Cards */}
+          <div className="lg:col-span-5 flex flex-col gap-4">
             {demos.map((demo, index) => (
               <div
                 key={demo.title}
