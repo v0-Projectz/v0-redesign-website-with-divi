@@ -47,9 +47,6 @@ export function ProcessSection() {
         data-divi-section="process"
         data-divi-modules="text,blurb"
       >
-        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[oklch(0.10_0.004_260)] to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[oklch(0.10_0.004_260)] to-transparent pointer-events-none" />
-
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           {/* Section Header — centered */}
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -106,8 +103,6 @@ export function ProcessSection() {
         data-divi-section="experience"
         data-divi-modules="text,image"
       >
-        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[oklch(0.135_0.005_260)] to-transparent pointer-events-none" />
-
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-6 lg:gap-10 items-center">
 

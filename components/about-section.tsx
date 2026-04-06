@@ -34,10 +34,6 @@ export function AboutSection() {
       data-divi-section="about"
       data-divi-modules="text,blurb,image"
     >
-      {/* Subtle top/bottom edge fades to blend with adjacent sections */}
-      <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[oklch(0.10_0.004_260)] to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[oklch(0.10_0.004_260)] to-transparent pointer-events-none" />
-      
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         {/* What We Do - Main Content */}
         <div className="grid lg:grid-cols-12 gap-4 lg:gap-6 mb-20">

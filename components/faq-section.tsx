@@ -42,8 +42,6 @@ export function FAQSection() {
       data-divi-section="faq"
       data-divi-modules="accordion"
     >
-      <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[oklch(0.135_0.005_260)] to-transparent pointer-events-none" />
-      
       <div className="relative mx-auto max-w-4xl px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
