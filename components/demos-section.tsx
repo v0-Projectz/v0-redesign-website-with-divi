@@ -39,6 +39,14 @@ const demos = [
     image: "/images/demo-documentary.jpg",
     features: ["Chapter Navigation", "BTS Content", "Filmmaker Bios"],
   },
+  {
+    id: 4,
+    title: "Sports Network",
+    category: "Sports & Commentary",
+    description: "High-energy sports channel platform with live commentary archives, game highlights, and athlete profiles.",
+    image: "/images/demo-talkshow.jpg",
+    features: ["Game Highlights", "Athlete Profiles", "Live Commentary"],
+  },
 ]
 
 export function DemosSection() {
@@ -155,7 +163,7 @@ export function DemosSection() {
           </div>
 
           {/* Side Stack (Right Side) - Clickable Cards with vertical scroll */}
-          <div className="lg:col-span-5 flex flex-col gap-4 lg:gap-4 max-h-[600px] overflow-y-auto pr-2 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-border/50 hover:scrollbar-thumb-border">
+          <div className="lg:col-span-5 flex flex-col gap-4 lg:gap-4 max-h-[364px] overflow-y-auto pr-2 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-border/50 hover:scrollbar-thumb-border">
             {demos.map((demo, index) => (
               <div
                 key={demo.title}

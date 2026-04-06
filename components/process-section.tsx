@@ -105,8 +105,8 @@ export function ProcessSection() {
             <div className="lg:col-span-5 grid grid-cols-2 gap-3">
               <div className="relative rounded-2xl overflow-hidden aspect-[4/5] col-span-1">
                 <Image
-                  src="/images/creator-crew.jpg"
-                  alt="Studio production crew filming"
+                  src="/images/creator-in-mind.jpg"
+                  alt="Creator setting up a professional cinema camera in studio"
                   fill
                   className="object-cover"
                 />

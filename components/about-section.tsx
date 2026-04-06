@@ -1,8 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { Users, Tv, BookOpen, Headphones, ArrowUpRight, Monitor, Play } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Users, Tv, BookOpen, Headphones, ArrowUpRight } from "lucide-react"
 
 const features = [
   {
@@ -25,13 +24,6 @@ const features = [
     title: "Ongoing Support",
     description: "Direct communication with the team building your site, plus guided walkthrough after launch.",
   },
-]
-
-const channelFeatures = [
-  "Network-style layout that organizes your shows like a professional channel",
-  "Custom video players designed for a polished viewing experience",
-  "Structured programming layout that makes it easy for viewers to explore your content",
-  "Scalable platform design that can grow with your channel"
 ]
 
 export function AboutSection() {
@@ -118,71 +110,7 @@ export function AboutSection() {
           ))}
         </div>
 
-        {/* See What Your Channel Could Look Like */}
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
-          {/* Left - Content */}
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl leading-tight mb-6">
-              See What Your Channel Could Look Like
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Your platform can be organized like a professional streaming network with structured shows, episodes, and categories.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Your channel is structured to highlight your shows and make it easy for viewers to explore your content. Creators can organize their programming into categories, present episodes clearly, and build a platform that feels like a real network.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              Everything is designed to help your content feel intentional, organized, and ready for a professional audience from day one.
-            </p>
-            
-            {/* Feature List */}
-            <ul className="space-y-4 mb-8">
-              {channelFeatures.map((feature, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <div className="h-6 w-6 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <div className="h-2 w-2 rounded-full bg-accent" />
-                  </div>
-                  <span className="text-foreground">{feature}</span>
-                </li>
-              ))}
-            </ul>
-            
-            <p className="text-sm text-muted-foreground italic">
-              Advanced features like dedicated show pages and episode libraries are available in our premium packages.
-            </p>
-          </div>
 
-          {/* Right - SeeWhatChannelLooksLike.jpg */}
-          <div className="relative">
-            <div className="rounded-3xl overflow-hidden border border-border/50 relative aspect-[4/3]">
-              <Image
-                src="/images/see-what-channel.jpg"
-                alt="Professional streaming channel interface with multiple show thumbnails"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-              
-              {/* Play button overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <a 
-                  href="#demos"
-                  className="h-16 w-16 rounded-full bg-accent/90 flex items-center justify-center glow-accent cursor-pointer hover:scale-110 transition-transform duration-300"
-                >
-                  <Play className="h-6 w-6 text-accent-foreground fill-current ml-1" />
-                </a>
-              </div>
-              
-              {/* Bottom badge */}
-              <div className="absolute bottom-4 left-4">
-                <div className="glass rounded-lg px-4 py-2 flex items-center gap-2">
-                  <Monitor className="h-4 w-4 text-accent" />
-                  <span className="text-sm text-foreground">Network-Style Layout</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   )

@@ -10,9 +10,9 @@ import { TestimonialsSection } from "@/components/testimonials-section"
 import { BuiltForCreatorsSection } from "@/components/built-for-creators-section"
 import { WhatYouGetSection } from "@/components/what-you-get-section"
 import { AddonsSection } from "@/components/addons-section"
-import { ReadyToStartSection } from "@/components/ready-to-start-section"
 import { ProcessSection } from "@/components/process-section"
 import { FAQSection } from "@/components/faq-section"
+import { PoliciesSection } from "@/components/policies-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 
@@ -31,9 +31,9 @@ export default function HomePage() {
       <BuiltForCreatorsSection />
       <WhatYouGetSection />
       <AddonsSection />
-      <ReadyToStartSection />
       <ProcessSection />
       <FAQSection />
+      <PoliciesSection />
       <ContactSection />
       <Footer />
     </main>
