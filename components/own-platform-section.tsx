@@ -83,7 +83,6 @@ export function OwnPlatformSection() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
                 <div className="glass rounded-xl p-4">
                   <p className="text-sm font-medium text-foreground">Once complete, the platform belongs to you</p>

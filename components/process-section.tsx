@@ -115,7 +115,6 @@ export function ProcessSection() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               </div>
               <div className="flex flex-col gap-3">
                 <div className="relative rounded-2xl overflow-hidden aspect-square">
@@ -125,7 +124,6 @@ export function ProcessSection() {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </div>
                 {/* Stat badge */}
                 <div className="rounded-2xl border border-accent/30 bg-accent/10 p-5 flex flex-col items-center justify-center text-center">

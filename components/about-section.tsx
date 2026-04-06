@@ -83,7 +83,6 @@ export function AboutSection() {
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
               <div className="glass rounded-xl p-4">
                 <p className="text-sm font-medium text-foreground">Built for creators, by creators</p>
