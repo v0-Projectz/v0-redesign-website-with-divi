@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { ArrowUpRight, Play } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
@@ -101,13 +101,6 @@ export function DemosSection() {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
               
-              {/* Play button overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="h-20 w-20 rounded-full bg-accent/90 flex items-center justify-center glow-accent cursor-pointer hover:scale-110 transition-transform duration-300">
-                  <Play className="h-8 w-8 text-accent-foreground fill-current ml-1" />
-                </div>
-              </div>
-              
               {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
                 <div className="glass rounded-2xl p-6">
@@ -180,11 +173,7 @@ export function DemosSection() {
                     
                     {/* Active Indicator */}
                     {activeDemo === index && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-accent/20">
-                        <div className="h-8 w-8 rounded-full bg-accent flex items-center justify-center">
-                          <Play className="h-4 w-4 text-accent-foreground fill-current ml-0.5" />
-                        </div>
-                      </div>
+                      <div className="absolute inset-0 bg-accent/10 border-2 border-accent/40 rounded-none" />
                     )}
                   </div>
                   
