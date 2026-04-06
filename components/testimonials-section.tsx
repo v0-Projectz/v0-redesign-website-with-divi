@@ -1,6 +1,6 @@
 "use client"
 
-import { Quote } from "lucide-react"
+import { Quote, Star } from "lucide-react"
 
 const testimonials = [
   {
@@ -8,37 +8,47 @@ const testimonials = [
     author: "Tige",
     role: "Non-Profit Founder",
     initials: "T",
+    rating: 5,
   },
   {
     quote: "I am incredibly grateful for the invaluable assistance in creating and developing my website. Their expertise not only helped me build a stunning online presence but also provided exceptional business coaching. The insightful tips and practical tools shared were instrumental in launching my beauty business successfully.",
     author: "Melanie",
     role: "Makeup Artist/Stylist",
     initials: "M",
+    rating: 5,
   },
   {
     quote: "My experience has been nothing but extraordinary. I needed help with my website that I couldn't put the finishing touches on. She was ready to take on the job, and fix my mess that I had created. She made my website and logo exactly how I imagined them. 5 stars isn't enough.",
     author: "Mrs. Hart",
     role: "Laundry Services Founder",
     initials: "H",
+    rating: 5,
   },
   {
     quote: "The team was very professional and personable. The business is top-tier and she's a superstar. A very dedicated individual. I will continue to use her services for many years to come and will continue recommending the business to many friends and family!",
     author: "Kristina",
     role: "Client",
     initials: "K",
+    rating: 5,
   },
 ]
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-24 lg:py-32 border-t border-border">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="testimonials" className="py-24 lg:py-32 relative">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/10 to-background pointer-events-none" />
+      
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-medium uppercase tracking-widest text-accent">
-            Testimonials
-          </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          <div className="inline-flex items-center gap-2 rounded-full bg-accent/10 border border-accent/20 px-4 py-1.5 mb-6">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            <span className="text-xs font-medium uppercase tracking-wider text-accent">
+              Testimonials
+            </span>
+          </div>
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
             What Creators Are Saying
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
@@ -46,16 +56,25 @@ export function TestimonialsSection() {
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* Testimonials Bento Grid */}
+        <div className="grid md:grid-cols-2 gap-4 lg:gap-6">
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.author}
-              className="relative p-8 rounded-xl border border-border bg-card hover:border-accent/30 transition-all duration-300"
+              className={`bento-card relative rounded-3xl border border-border/50 p-6 lg:p-8 ${
+                index === 0 ? "glass-card" : "bg-card/30"
+              }`}
             >
               {/* Quote Icon */}
-              <div className="absolute top-6 right-6">
+              <div className="absolute top-6 right-6 lg:top-8 lg:right-8">
                 <Quote className="h-8 w-8 text-accent/20" />
+              </div>
+
+              {/* Rating */}
+              <div className="flex items-center gap-1 mb-4">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-accent text-accent" />
+                ))}
               </div>
 
               {/* Quote Text */}
@@ -64,8 +83,8 @@ export function TestimonialsSection() {
               </blockquote>
 
               {/* Author */}
-              <div className="mt-6 flex items-center gap-4 pt-6 border-t border-border">
-                <div className="h-12 w-12 rounded-full bg-accent/20 flex items-center justify-center">
+              <div className="mt-6 flex items-center gap-4 pt-6 border-t border-border/50">
+                <div className="h-12 w-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center">
                   <span className="text-lg font-semibold text-accent">
                     {testimonial.initials}
                   </span>

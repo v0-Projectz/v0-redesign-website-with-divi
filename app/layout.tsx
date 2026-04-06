@@ -1,16 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const inter = Inter({ 
+const montserrat = Montserrat({ 
   subsets: ["latin"],
-  variable: '--font-inter'
-})
-
-const playfair = Playfair_Display({ 
-  subsets: ["latin"],
-  variable: '--font-playfair'
+  variable: '--font-montserrat',
+  weight: ['300', '400', '500', '600', '700', '800']
 })
 
 export const metadata: Metadata = {
@@ -25,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
+    <html lang="en" className={montserrat.variable} suppressHydrationWarning>
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

@@ -1,71 +1,92 @@
 "use client"
 
-import { ArrowRight, Mail, Phone, Calendar } from "lucide-react"
+import { ArrowRight, Mail, Phone, Calendar, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
+const contactInfo = [
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "(336) 303-1658",
+    href: "tel:+13363031658",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    value: "Admin@MyStudioChannel.com",
+    href: "mailto:Admin@MyStudioChannel.com",
+  },
+  {
+    icon: Calendar,
+    label: "Schedule",
+    value: "Book a consultation call",
+    href: "#",
+  },
+]
+
 export function ContactSection() {
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-secondary/30">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Left - Content */}
-          <div>
-            <span className="text-xs font-medium uppercase tracking-widest text-accent">
-              Contact
-            </span>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+    <section id="contact" className="py-24 lg:py-32 relative">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background pointer-events-none" />
+      
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Bento Grid Layout */}
+        <div className="grid lg:grid-cols-12 gap-4 lg:gap-6">
+          {/* Left - Content Card */}
+          <div className="lg:col-span-5 bento-card glass-card rounded-3xl border border-border/50 p-8 lg:p-10">
+            <div className="inline-flex items-center gap-2 rounded-full bg-accent/10 border border-accent/20 px-4 py-1.5 mb-6">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              <span className="text-xs font-medium uppercase tracking-wider text-accent">
+                Contact
+              </span>
+            </div>
+            
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl leading-tight">
               Ready to Get Started?
             </h2>
-            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+            <p className="mt-4 text-muted-foreground leading-relaxed">
               Schedule a consultation or reach out with questions — we&apos;ll walk 
               you through the process step by step.
             </p>
 
             {/* Contact Info */}
-            <div className="mt-10 space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                  <Phone className="h-5 w-5 text-accent" />
-                </div>
-                <div>
-                  <div className="text-sm text-muted-foreground">Phone</div>
-                  <div className="font-medium text-foreground">(336) 303-1658</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                  <Mail className="h-5 w-5 text-accent" />
-                </div>
-                <div>
-                  <div className="text-sm text-muted-foreground">Email</div>
-                  <div className="font-medium text-foreground">Admin@MyStudioChannel.com</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                  <Calendar className="h-5 w-5 text-accent" />
-                </div>
-                <div>
-                  <div className="text-sm text-muted-foreground">Schedule</div>
-                  <div className="font-medium text-foreground">Book a consultation call</div>
-                </div>
-              </div>
+            <div className="mt-10 space-y-4">
+              {contactInfo.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-secondary/30 border border-border/50 hover:border-accent/30 transition-all duration-300 group"
+                >
+                  <div className="h-12 w-12 rounded-xl bg-secondary/50 border border-border/50 flex items-center justify-center group-hover:bg-accent/10 group-hover:border-accent/30 transition-all duration-300">
+                    <item.icon className="h-5 w-5 text-muted-foreground group-hover:text-accent transition-colors" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-muted-foreground uppercase tracking-wider font-medium">{item.label}</div>
+                    <div className="font-medium text-foreground group-hover:text-accent transition-colors">{item.value}</div>
+                  </div>
+                </a>
+              ))}
             </div>
 
             {/* Schedule CTA */}
-            <Button className="mt-10 bg-accent text-accent-foreground hover:bg-accent/90 h-12 px-6">
+            <Button className="mt-8 w-full bg-accent text-accent-foreground hover:bg-accent/90 h-14 text-base font-semibold glow-accent-sm hover:glow-accent transition-all duration-300">
               Schedule a Call
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
 
-          {/* Right - Form */}
-          <div className="rounded-2xl border border-border bg-card p-8">
-            <h3 className="text-xl font-semibold text-foreground mb-6">
+          {/* Right - Form Card */}
+          <div className="lg:col-span-7 bento-card rounded-3xl border border-border/50 bg-card/30 p-8 lg:p-10">
+            <h3 className="text-xl font-bold text-foreground mb-2">
               Send a Message
             </h3>
+            <p className="text-sm text-muted-foreground mb-8">
+              Fill out the form below and we&apos;ll get back to you within 24 hours.
+            </p>
+            
             <form className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
@@ -75,7 +96,7 @@ export function ContactSection() {
                   <Input
                     id="firstName"
                     placeholder="John"
-                    className="bg-background border-border text-foreground placeholder:text-muted-foreground"
+                    className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground/50 h-12 rounded-xl focus:border-accent/50 focus:ring-accent/20"
                   />
                 </div>
                 <div>
@@ -85,7 +106,7 @@ export function ContactSection() {
                   <Input
                     id="lastName"
                     placeholder="Doe"
-                    className="bg-background border-border text-foreground placeholder:text-muted-foreground"
+                    className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground/50 h-12 rounded-xl focus:border-accent/50 focus:ring-accent/20"
                   />
                 </div>
               </div>
@@ -97,7 +118,17 @@ export function ContactSection() {
                   id="email"
                   type="email"
                   placeholder="john@example.com"
-                  className="bg-background border-border text-foreground placeholder:text-muted-foreground"
+                  className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground/50 h-12 rounded-xl focus:border-accent/50 focus:ring-accent/20"
+                />
+              </div>
+              <div>
+                <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
+                  Subject
+                </label>
+                <Input
+                  id="subject"
+                  placeholder="What's this about?"
+                  className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground/50 h-12 rounded-xl focus:border-accent/50 focus:ring-accent/20"
                 />
               </div>
               <div>
@@ -108,10 +139,10 @@ export function ContactSection() {
                   id="message"
                   placeholder="Tell us about your project..."
                   rows={5}
-                  className="bg-background border-border text-foreground placeholder:text-muted-foreground resize-none"
+                  className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground/50 resize-none rounded-xl focus:border-accent/50 focus:ring-accent/20"
                 />
               </div>
-              <Button type="submit" className="w-full bg-accent text-accent-foreground hover:bg-accent/90 h-12">
+              <Button type="submit" className="w-full bg-secondary/50 text-foreground hover:bg-secondary/80 border border-border/50 h-14 text-base font-semibold">
                 Send Message
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

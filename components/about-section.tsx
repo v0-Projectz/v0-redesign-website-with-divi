@@ -1,6 +1,7 @@
 "use client"
 
-import { Users, Tv, BookOpen, Headphones } from "lucide-react"
+import Image from "next/image"
+import { Users, Tv, BookOpen, Headphones, ArrowUpRight } from "lucide-react"
 
 const features = [
   {
@@ -27,50 +28,85 @@ const features = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 lg:py-32 border-t border-border">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Left Content */}
-          <div>
-            <span className="text-xs font-medium uppercase tracking-widest text-accent">
-              What We Do
-            </span>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+    <section id="about" className="py-24 lg:py-32 relative">
+      {/* Background accent */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background pointer-events-none" />
+      
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Bento Grid Layout */}
+        <div className="grid lg:grid-cols-12 gap-4 lg:gap-6">
+          {/* Main Content Card - spans 7 columns */}
+          <div className="lg:col-span-7 bento-card glass-card rounded-3xl p-8 lg:p-10 border border-border/50">
+            <div className="inline-flex items-center gap-2 rounded-full bg-accent/10 border border-accent/20 px-4 py-1.5 mb-6">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              <span className="text-xs font-medium uppercase tracking-wider text-accent">
+                What We Do
+              </span>
+            </div>
+            
+            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl leading-tight">
               About My Studio Channel
             </h2>
+            
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
               My Studio Channel helps creators launch their own television-style 
               platforms online. From talk shows and cooking shows to podcasts and 
               documentaries, we design clean, organized websites that showcase 
               programming the way a real network would.
             </p>
+            
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               Because we&apos;re creators too, we understand what it takes to present 
               your work professionally. Every platform includes a custom built-in 
               plugin with step-by-step tutorials, plus access to our creator 
               community for continued learning and support.
             </p>
+
+            <div className="mt-8 flex items-center gap-4">
+              <a 
+                href="#contact" 
+                className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-colors"
+              >
+                Learn more about our process
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+            </div>
           </div>
 
-          {/* Right - Features Grid */}
-          <div className="grid sm:grid-cols-2 gap-6">
-            {features.map((feature, index) => (
-              <div
-                key={feature.title}
-                className="group p-6 rounded-lg border border-border bg-card hover:border-accent/50 transition-all duration-300"
-              >
-                <div className="h-12 w-12 rounded-lg bg-secondary flex items-center justify-center mb-4 group-hover:bg-accent/10 transition-colors">
-                  <feature.icon className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="font-semibold text-foreground mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
+          {/* Image Card - spans 5 columns */}
+          <div className="lg:col-span-5 bento-card rounded-3xl overflow-hidden border border-border/50 relative min-h-[300px] lg:min-h-0">
+            <Image
+              src="/images/about-studio.jpg"
+              alt="Creator working at professional studio workstation"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6">
+              <div className="glass rounded-xl p-4">
+                <p className="text-sm font-medium text-foreground">Built for creators, by creators</p>
+                <p className="text-xs text-muted-foreground mt-1">20+ years of media experience</p>
               </div>
-            ))}
+            </div>
           </div>
+
+          {/* Feature Cards - 4 across */}
+          {features.map((feature, index) => (
+            <div
+              key={feature.title}
+              className="lg:col-span-3 bento-card group p-6 rounded-2xl border border-border/50 bg-card/30 hover:bg-card/50 transition-all duration-300"
+            >
+              <div className="h-12 w-12 rounded-xl bg-secondary/50 border border-border/50 flex items-center justify-center mb-4 group-hover:bg-accent/10 group-hover:border-accent/20 transition-all duration-300">
+                <feature.icon className="h-5 w-5 text-muted-foreground group-hover:text-accent transition-colors" />
+              </div>
+              <h3 className="font-semibold text-foreground mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {feature.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -36,14 +36,20 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <section id="faq" className="py-24 lg:py-32 border-t border-border">
-      <div className="mx-auto max-w-4xl px-6 lg:px-8">
+    <section id="faq" className="py-24 lg:py-32 relative">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/10 to-background pointer-events-none" />
+      
+      <div className="relative mx-auto max-w-4xl px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-xs font-medium uppercase tracking-widest text-accent">
-            FAQ
-          </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          <div className="inline-flex items-center gap-2 rounded-full bg-accent/10 border border-accent/20 px-4 py-1.5 mb-6">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            <span className="text-xs font-medium uppercase tracking-wider text-accent">
+              FAQ
+            </span>
+          </div>
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
             Common Inquiries
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
@@ -52,18 +58,24 @@ export function FAQSection() {
         </div>
 
         {/* FAQ Accordion */}
-        <Accordion type="single" collapsible className="w-full">
-          {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`} className="border-border">
-              <AccordionTrigger className="text-left text-foreground hover:text-accent hover:no-underline py-6">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground pb-6">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+        <div className="bento-card glass-card rounded-3xl border border-border/50 p-6 lg:p-8">
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, index) => (
+              <AccordionItem 
+                key={index} 
+                value={`item-${index}`} 
+                className="border-border/50 last:border-b-0"
+              >
+                <AccordionTrigger className="text-left text-foreground hover:text-accent hover:no-underline py-5 text-base font-medium">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
       </div>
     </section>
   )

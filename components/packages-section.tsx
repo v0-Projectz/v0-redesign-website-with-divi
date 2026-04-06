@@ -1,8 +1,7 @@
 "use client"
 
-import { Check, Star } from "lucide-react"
+import { Check, Sparkles, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 
 const packages = [
   {
@@ -60,14 +59,20 @@ const packages = [
 
 export function PackagesSection() {
   return (
-    <section id="packages" className="py-24 lg:py-32 border-t border-border">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="packages" className="py-24 lg:py-32 relative">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/10 to-background pointer-events-none" />
+      
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto">
-          <span className="text-xs font-medium uppercase tracking-widest text-accent">
-            Investment
-          </span>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 rounded-full bg-accent/10 border border-accent/20 px-4 py-1.5 mb-6">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            <span className="text-xs font-medium uppercase tracking-wider text-accent">
+              Investment
+            </span>
+          </div>
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
             Build Packages
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
@@ -77,21 +82,20 @@ export function PackagesSection() {
         </div>
 
         {/* Packages Grid */}
-        <div className="mt-16 grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-4 lg:gap-6">
           {packages.map((pkg) => (
             <div
               key={pkg.name}
-              className={cn(
-                "relative rounded-2xl border p-8 flex flex-col",
+              className={`bento-card relative rounded-3xl border p-6 lg:p-8 flex flex-col ${
                 pkg.featured
-                  ? "border-accent bg-card scale-105"
-                  : "border-border bg-card/50"
-              )}
+                  ? "glass-card border-accent/30 lg:scale-105 z-10"
+                  : "bg-card/30 border-border/50"
+              }`}
             >
               {pkg.featured && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <div className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-1.5">
-                    <Star className="h-3.5 w-3.5 fill-accent-foreground text-accent-foreground" />
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <div className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-1.5 glow-accent-sm">
+                    <Sparkles className="h-3.5 w-3.5 text-accent-foreground" />
                     <span className="text-xs font-semibold text-accent-foreground">
                       Most Popular
                     </span>
@@ -99,10 +103,12 @@ export function PackagesSection() {
                 </div>
               )}
 
-              <div className="mb-6">
+              <div className="mb-6 pt-2">
                 <h3 className="text-xl font-bold text-foreground">{pkg.name}</h3>
                 <div className="mt-4 flex items-baseline gap-1">
-                  <span className="text-4xl font-bold text-foreground">{pkg.price}</span>
+                  <span className={`text-4xl font-bold ${pkg.featured ? "text-accent" : "text-foreground"}`}>
+                    {pkg.price}
+                  </span>
                 </div>
                 <p className="mt-3 text-sm text-muted-foreground">
                   {pkg.description}
@@ -110,32 +116,38 @@ export function PackagesSection() {
               </div>
 
               <div className="flex-1">
-                <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">
-                  Payment Plan: 50% Deposit, 25% Midway, 25% Final
+                <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-4 font-medium">
+                  Payment: 50% Deposit / 25% Midway / 25% Final
                 </p>
                 <ul className="space-y-3">
                   {pkg.features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                      <div className={`h-5 w-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                        pkg.featured 
+                          ? "bg-accent/20 border border-accent/30" 
+                          : "bg-secondary/50 border border-border/50"
+                      }`}>
+                        <Check className={`h-3 w-3 ${pkg.featured ? "text-accent" : "text-muted-foreground"}`} />
+                      </div>
                       <span className="text-sm text-muted-foreground">{feature}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-border">
+              <div className="mt-8 pt-6 border-t border-border/50">
                 <p className="text-xs text-muted-foreground mb-4">
                   <span className="font-semibold text-foreground">Best For:</span> {pkg.bestFor}
                 </p>
                 <Button
-                  className={cn(
-                    "w-full",
+                  className={`w-full ${
                     pkg.featured
-                      ? "bg-accent text-accent-foreground hover:bg-accent/90"
-                      : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                  )}
+                      ? "bg-accent text-accent-foreground hover:bg-accent/90 glow-accent-sm"
+                      : "bg-secondary/50 text-foreground hover:bg-secondary/80 border border-border/50"
+                  }`}
                 >
                   Get Started
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             </div>
