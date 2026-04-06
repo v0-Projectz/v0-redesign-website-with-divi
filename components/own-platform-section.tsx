@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Shield, Users, Rocket, MessageSquare, BookOpen, Layers, Video, Mic, Layout, Lock, FolderKanban, GraduationCap } from "lucide-react"
 
 const features = [
@@ -52,18 +53,42 @@ export function OwnPlatformSection() {
       </div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
-        {/* Section Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-accent/30 mb-6">
-            <Shield className="h-4 w-4 text-accent" />
-            <span className="text-sm font-medium text-accent">True Ownership</span>
+        {/* Section Header with Image */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+          <div>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-accent/30 mb-6">
+              <Shield className="h-4 w-4 text-accent" />
+              <span className="text-sm font-medium text-accent">True Ownership</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
+              Own Your Platform
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6">
+              A professional streaming-style website built for you one time. No platform lock-in, no monthly subscriptions, and no per-subscriber fees.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Unlike many creator platforms that charge monthly fees and additional costs for every subscriber, your platform is built for you to own and operate independently.
+            </p>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
-            Own Your Platform
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            A professional streaming-style website built for you one time. No platform lock-in, no monthly subscriptions, and no per-subscriber fees.
-          </p>
+          
+          {/* Image - section-My-Studio-Channel-.png */}
+          <div className="relative">
+            <div className="rounded-3xl overflow-hidden border border-border/50 relative aspect-[4/3]">
+              <Image
+                src="/images/own-platform.jpg"
+                alt="Professional film crew with camera and clapperboard"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <div className="glass rounded-xl p-4">
+                  <p className="text-sm font-medium text-foreground">Once complete, the platform belongs to you</p>
+                  <p className="text-xs text-muted-foreground mt-1">No hidden fees or platform restrictions</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Main Features Grid */}
@@ -84,7 +109,7 @@ export function OwnPlatformSection() {
 
         {/* Bento Grid Layout */}
         <div className="grid lg:grid-cols-3 gap-6">
-          {/* Support Card - Spans 1 column */}
+          {/* Support Card */}
           <div className="glass-card rounded-2xl p-8 border border-border/50 hover:border-accent/30 transition-all duration-500">
             <div className="flex items-center gap-3 mb-6">
               <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center">
@@ -132,7 +157,7 @@ export function OwnPlatformSection() {
               </div>
               <h3 className="text-lg font-semibold text-foreground">Your Own Ecosystem</h3>
             </div>
-            <p className="text-sm text-muted-foreground mb-4">Your website is built so your content can grow without platform restrictions. Your platform can include:</p>
+            <p className="text-sm text-muted-foreground mb-4">Your website is built so your content can grow without platform restrictions:</p>
             <div className="space-y-3">
               {ecosystemItems.map((item, index) => (
                 <div key={index} className="flex items-center gap-3">

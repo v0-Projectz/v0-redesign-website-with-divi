@@ -258,3 +258,22 @@ html {
 .status-indicator {
   animation: status-pulse 2s ease-in-out infinite;
 }
+
+/* Scrollbar utilities for custom scroll areas */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-track-transparent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thumb-border\/50::-webkit-scrollbar-thumb {
+  background: oklch(0.25 0.005 260 / 0.5);
+  border-radius: 2px;
+}
+
+.scrollbar-thumb-border::-webkit-scrollbar-thumb {
+  background: oklch(0.30 0.005 260);
+  border-radius: 2px;
+}
