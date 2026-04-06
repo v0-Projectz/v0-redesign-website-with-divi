@@ -77,8 +77,8 @@ export function AboutSection() {
           {/* Image Card - spans 5 columns */}
           <div className="lg:col-span-5 bento-card rounded-3xl overflow-hidden border border-border/50 relative min-h-[300px] lg:min-h-0">
             <Image
-              src="/images/about-studio.jpg"
-              alt="Creator working at professional studio workstation"
+              src="/images/creator-solo.jpg"
+              alt="Creator operating professional cinema camera in studio"
               fill
               className="object-cover"
             />

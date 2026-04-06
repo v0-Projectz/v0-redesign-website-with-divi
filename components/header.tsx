@@ -75,12 +75,15 @@ export function Header() {
             <Button
               variant="ghost"
               className="text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+              asChild
             >
-              View Demo
+              <a href="#demos">View Demo</a>
             </Button>
-            <Button className="bg-accent text-accent-foreground hover:bg-accent/90 glow-accent-sm hover:glow-accent transition-all duration-300">
-              Book Consultation
-              <ChevronRight className="ml-1 h-4 w-4" />
+            <Button className="bg-accent text-accent-foreground hover:bg-accent/90 glow-accent-sm hover:glow-accent transition-all duration-300" asChild>
+              <a href="#contact">
+                Book Consultation
+                <ChevronRight className="ml-1 h-4 w-4" />
+              </a>
             </Button>
           </div>
 
@@ -112,12 +115,15 @@ export function Header() {
               <Button
                 variant="outline"
                 className="border-border text-foreground hover:bg-secondary w-full justify-center"
+                asChild
               >
-                View Demo
+                <a href="#demos" onClick={() => setIsMobileMenuOpen(false)}>View Demo</a>
               </Button>
-              <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full justify-center glow-accent-sm">
-                Book Consultation
-                <ChevronRight className="ml-1 h-4 w-4" />
+              <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full justify-center glow-accent-sm" asChild>
+                <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                  Book Consultation
+                  <ChevronRight className="ml-1 h-4 w-4" />
+                </a>
               </Button>
             </div>
           </nav>
