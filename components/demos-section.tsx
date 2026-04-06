@@ -75,10 +75,10 @@ export function DemosSection() {
         </div>
 
         {/* Demos Interactive Grid */}
-        <div className="grid lg:grid-cols-12 gap-4 lg:gap-6">
+        <div className="grid lg:grid-cols-12 gap-4 lg:gap-6 lg:items-stretch">
           {/* Featured Demo - Large Card (Left Side) */}
           <div className="lg:col-span-7 bento-card group rounded-3xl border border-border/50 overflow-hidden relative">
-            <div className="aspect-video lg:aspect-[4/3] relative">
+            <div className="aspect-video lg:aspect-auto lg:absolute lg:inset-0 relative">
               {/* Image with smooth transition */}
               <div className="absolute inset-0">
                 {demos.map((demo) => (

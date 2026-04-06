@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Mic, Utensils, Clapperboard, Video, Smile, Sparkles, Film, Camera, Check } from "lucide-react"
 
 const programmingStyles = [
@@ -64,50 +65,73 @@ export function ServicesSection() {
         <div className="grid lg:grid-cols-12 gap-4 lg:gap-6">
           {/* Preview Visual */}
           <div className="lg:col-span-7 bento-card rounded-3xl border border-border/50 overflow-hidden relative">
-            <div className="aspect-video lg:aspect-auto lg:h-full bg-gradient-to-br from-secondary/50 via-card to-secondary/30 relative">
-              {/* Mock streaming interface */}
-              <div className="absolute inset-0 p-6 lg:p-8 flex flex-col">
-                {/* Top bar */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-3">
-                    <div className="h-8 w-8 rounded-lg bg-accent/20 border border-accent/30" />
-                    <div className="space-y-1.5">
-                      <div className="h-3 w-24 rounded bg-foreground/10" />
-                      <div className="h-2 w-16 rounded bg-foreground/5" />
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="h-8 w-20 rounded-lg bg-foreground/5 border border-border/50" />
-                    <div className="h-8 w-8 rounded-lg bg-accent/20 border border-accent/30" />
-                  </div>
+            <div className="aspect-video lg:aspect-auto lg:h-full bg-card relative p-4 lg:p-5 flex flex-col gap-3">
+              {/* Top row: large featured + 2 stacked small */}
+              <div className="flex-1 grid grid-cols-3 gap-3 min-h-0">
+                {/* Large featured screenshot */}
+                <div className="col-span-2 rounded-xl overflow-hidden relative border border-border/30">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-06%20123343-J2xAeqCTOar8kd1Xz2YrB7ug7RGVau.jpg"
+                    alt="MSC Engine Settings - Data & Migration panel"
+                    fill
+                    className="object-cover object-top"
+                  />
                 </div>
-                
-                {/* Featured content */}
-                <div className="flex-1 grid grid-cols-3 gap-3">
-                  <div className="col-span-2 rounded-xl bg-foreground/5 border border-border/30 relative overflow-hidden">
-                    <div className="absolute bottom-3 left-3 right-3">
-                      <div className="h-2.5 w-2/3 rounded bg-foreground/10 mb-2" />
-                      <div className="h-2 w-1/2 rounded bg-foreground/5" />
-                    </div>
+                {/* 2 stacked on right */}
+                <div className="flex flex-col gap-3">
+                  <div className="flex-1 rounded-lg overflow-hidden relative border border-border/30">
+                    <Image
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-06%20123304-ON0KD84GQUlobg82W0PMVslGQITyT6.jpg"
+                      alt="MSC Engine Settings - Layout Tuning panel"
+                      fill
+                      className="object-cover object-top"
+                    />
                   </div>
-                  <div className="space-y-3">
-                    {[...Array(3)].map((_, i) => (
-                      <div key={i} className="rounded-lg bg-foreground/5 border border-border/30 aspect-video" />
-                    ))}
+                  <div className="flex-1 rounded-lg overflow-hidden relative border border-border/30">
+                    <Image
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-06%20123623-t7h1mvyerwRVftlwpNw4ckS8jxYQ2P.jpg"
+                      alt="MSC Engine Settings - System Status panel"
+                      fill
+                      className="object-cover object-top"
+                    />
                   </div>
-                </div>
-                
-                {/* Bottom row */}
-                <div className="mt-4 grid grid-cols-4 gap-3">
-                  {[...Array(4)].map((_, i) => (
-                    <div key={i} className="rounded-lg bg-foreground/5 border border-border/30 aspect-video" />
-                  ))}
                 </div>
               </div>
-              
-              {/* Decorative elements */}
-              <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-accent/10 blur-3xl" />
-              <div className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-accent/5 blur-2xl" />
+              {/* Bottom row: 4 equal thumbnails */}
+              <div className="grid grid-cols-4 gap-3">
+                <div className="h-[90px] rounded-lg overflow-hidden relative border border-border/30">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-06%20123829-09VrzbfSvmmjuLymabUUCZf94e6zov.jpg"
+                    alt="MSC Tutorials panel"
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
+                <div className="h-[90px] rounded-lg overflow-hidden relative border border-border/30">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-06%20123438-eN1sVFcpuppRNXGOzJte053aWaR16N.jpg"
+                    alt="MSC Layout Tuning - green toggles"
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
+                <div className="h-[90px] rounded-lg overflow-hidden relative border border-border/30">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-06%20123858-RAT3hdKYuhO5bqiClVQ0BjZvtwHmzj.jpg"
+                    alt="MSC Data & Migration - Export & Import tools"
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
+                <div className="h-[90px] rounded-lg overflow-hidden relative border border-border/30">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-04-06%20123929-DQ4uEII1pw6PLwjSlqxTGLOnj5nWH6.jpg"
+                    alt="MSC System Operations accordion"
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
+              </div>
             </div>
           </div>
 
