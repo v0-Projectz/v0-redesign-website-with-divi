@@ -42,9 +42,11 @@ const ecosystemItems = [
 
 export function OwnPlatformSection() {
   return (
-    <section id="own-platform" className="py-32 relative overflow-hidden">
+    <section id="own-platform" className="py-32 relative overflow-hidden bg-surface-2">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[oklch(0.10_0.004_260)] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[oklch(0.10_0.004_260)] to-transparent" />
         <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-accent/3 rounded-full blur-[100px]" />
       </div>

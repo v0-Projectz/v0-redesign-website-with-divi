@@ -51,6 +51,11 @@
   --chart-4: oklch(0.7 0.15 60);
   --chart-5: oklch(0.6 0.18 320);
   
+  /* Section surface tones — alternating grey rhythm */
+  --surface-0: oklch(0.10 0.004 260);   /* deepest — near black */
+  --surface-1: oklch(0.135 0.005 260);  /* mid-dark charcoal */
+  --surface-2: oklch(0.165 0.005 260);  /* lifted dark grey */
+
   /* Radius - large for modern feel */
   --radius: 0.75rem;
   
@@ -149,6 +154,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Section surface backgrounds */
+.bg-surface-0 { background-color: oklch(0.10 0.004 260); }
+.bg-surface-1 { background-color: oklch(0.135 0.005 260); }
+.bg-surface-2 { background-color: oklch(0.165 0.005 260); }
 
 /* Glassmorphism utility classes */
 .glass {

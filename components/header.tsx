@@ -33,9 +33,10 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled
-          ? "glass border-b border-border/50"
+          ? "border-b border-white/[0.06]"
           : "bg-transparent"
       )}
+      style={isScrolled ? { backgroundColor: "rgba(13,13,15,0.92)", backdropFilter: "blur(18px)", WebkitBackdropFilter: "blur(18px)" } : undefined}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
@@ -95,7 +96,7 @@ export function Header() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden glass-card border-t border-border/50">
+        <div className="lg:hidden border-t border-white/[0.06]" style={{ backgroundColor: "rgba(13,13,15,0.97)", backdropFilter: "blur(18px)", WebkitBackdropFilter: "blur(18px)" }}>
           <nav className="flex flex-col px-6 py-6 gap-1">
             {navLinks.map((link) => (
               <Link

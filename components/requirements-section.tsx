@@ -56,9 +56,11 @@ export function RequirementsSection() {
   const [activeItem, setActiveItem] = useState<number | null>(null)
 
   return (
-    <section id="requirements" className="py-32 relative overflow-hidden">
+    <section id="requirements" className="py-32 relative overflow-hidden bg-surface-1">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[oklch(0.10_0.004_260)] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[oklch(0.10_0.004_260)] to-transparent" />
         <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-accent/3 rounded-full blur-[150px]" />
       </div>
 

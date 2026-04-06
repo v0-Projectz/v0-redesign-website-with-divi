@@ -31,9 +31,9 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section className="py-24 lg:py-32 relative">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background pointer-events-none" />
+    <section className="py-24 lg:py-32 relative bg-surface-1">
+      <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[oklch(0.10_0.004_260)] to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[oklch(0.10_0.004_260)] to-transparent pointer-events-none" />
       
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
