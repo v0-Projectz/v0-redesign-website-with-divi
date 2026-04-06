@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X, ChevronRight, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -56,10 +57,13 @@ export function Header() {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative">
-              <div className="h-10 w-10 rounded-xl bg-accent flex items-center justify-center glow-accent-sm group-hover:glow-accent transition-all duration-300">
-                <span className="text-accent-foreground font-bold text-sm tracking-tight">MSC</span>
-              </div>
+            <div className="relative h-10 w-10">
+              <Image
+                src="/images/msc-icon.png"
+                alt="MSC Logo"
+                fill
+                className="object-contain group-hover:drop-shadow-lg transition-all duration-300"
+              />
             </div>
             <div className="hidden sm:block">
               <span className="text-base font-semibold tracking-tight text-foreground">

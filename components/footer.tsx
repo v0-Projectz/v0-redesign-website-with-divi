@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+import Image from "next/image"
 
 const footerLinks = {
   company: [
@@ -31,8 +31,13 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6 group">
-              <div className="h-10 w-10 rounded-xl bg-accent flex items-center justify-center glow-accent-sm group-hover:glow-accent transition-all duration-300">
-                <span className="text-accent-foreground font-bold text-sm">MSC</span>
+              <div className="relative h-10 w-10 flex-shrink-0">
+                <Image
+                  src="/images/msc-icon.png"
+                  alt="MSC Logo"
+                  fill
+                  className="object-contain group-hover:drop-shadow-lg transition-all duration-300"
+                />
               </div>
               <div>
                 <span className="block text-base font-semibold tracking-tight text-foreground">
@@ -101,21 +106,10 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
+        <div className="mt-16 pt-8 border-t border-border/50">
+          <p className="text-sm text-muted-foreground text-center">
             &copy; {new Date().getFullYear()} My Studio Channel. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
-            <Link
-              href="https://mystudiochannel.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-muted-foreground hover:text-accent transition-colors inline-flex items-center gap-1"
-            >
-              Visit Current Site
-              <ArrowUpRight className="h-3 w-3" />
-            </Link>
-          </div>
         </div>
       </div>
 

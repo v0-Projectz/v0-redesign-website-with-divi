@@ -39,14 +39,6 @@ const demos = [
     image: "/images/demo-documentary.jpg",
     features: ["Chapter Navigation", "BTS Content", "Filmmaker Bios"],
   },
-  {
-    id: 4,
-    title: "Sports Network",
-    category: "Sports & Commentary",
-    description: "High-energy sports channel platform with live commentary archives, game highlights, and athlete profiles.",
-    image: "/images/demo-talkshow.jpg",
-    features: ["Game Highlights", "Athlete Profiles", "Live Commentary"],
-  },
 ]
 
 export function DemosSection() {
