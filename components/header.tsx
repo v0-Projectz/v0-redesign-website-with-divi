@@ -2,23 +2,37 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X, ChevronRight } from "lucide-react"
+import { Menu, X, ChevronRight, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
   { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#own-platform", label: "Own Your Platform" },
-  { href: "#packages", label: "Packages" },
-  { href: "#requirements", label: "Requirements" },
+  { 
+    label: "Services",
+    submenu: [
+      { href: "#services", label: "What We Do" },
+      { href: "#own-platform", label: "Own Your Platform" },
+      { href: "#packages", label: "Packages" },
+      { href: "#requirements", label: "Requirements" },
+    ]
+  },
   { href: "#demos", label: "Demos" },
-  { href: "#faq", label: "FAQ" },
+  { 
+    label: "Resources",
+    submenu: [
+      { href: "#testimonials", label: "Testimonials" },
+      { href: "#faq", label: "FAQ" },
+    ]
+  },
+  { href: "#contact", label: "Contact" },
 ]
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
+  const [mobileOpenSubmenu, setMobileOpenSubmenu] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,13 +74,49 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50"
-              >
-                {link.label}
-              </Link>
+              link.submenu ? (
+                <div 
+                  key={link.label} 
+                  className="relative"
+                  onMouseEnter={() => setOpenSubmenu(link.label)}
+                  onMouseLeave={() => setOpenSubmenu(null)}
+                >
+                  <button
+                    className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50 inline-flex items-center gap-1"
+                  >
+                    {link.label}
+                    <ChevronDown className={cn(
+                      "h-4 w-4 transition-transform",
+                      openSubmenu === link.label && "rotate-180"
+                    )} />
+                  </button>
+                  
+                  {/* Dropdown */}
+                  {openSubmenu === link.label && (
+                    <div className="absolute top-full left-0 pt-2">
+                      <div className="rounded-xl border border-border/50 p-2 min-w-[200px]" style={{ backgroundColor: "rgba(13,13,15,0.97)", backdropFilter: "blur(18px)" }}>
+                        {link.submenu.map((sublink) => (
+                          <Link
+                            key={sublink.href}
+                            href={sublink.href}
+                            className="block px-4 py-2.5 text-sm text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
+                          >
+                            {sublink.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href!}
+                  className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50"
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -102,14 +152,43 @@ export function Header() {
         <div className="lg:hidden border-t border-white/[0.06]" style={{ backgroundColor: "rgba(13,13,15,0.97)", backdropFilter: "blur(18px)", WebkitBackdropFilter: "blur(18px)" }}>
           <nav className="flex flex-col px-6 py-6 gap-1">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-3 px-4 rounded-lg hover:bg-secondary/50"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
+              link.submenu ? (
+                <div key={link.label}>
+                  <button
+                    onClick={() => setMobileOpenSubmenu(mobileOpenSubmenu === link.label ? null : link.label)}
+                    className="w-full flex items-center justify-between text-sm text-muted-foreground hover:text-foreground transition-colors py-3 px-4 rounded-lg hover:bg-secondary/50"
+                  >
+                    {link.label}
+                    <ChevronDown className={cn(
+                      "h-4 w-4 transition-transform",
+                      mobileOpenSubmenu === link.label && "rotate-180"
+                    )} />
+                  </button>
+                  {mobileOpenSubmenu === link.label && (
+                    <div className="ml-4 border-l border-border/50 pl-4 mt-1 mb-2">
+                      {link.submenu.map((sublink) => (
+                        <Link
+                          key={sublink.href}
+                          href={sublink.href}
+                          className="block text-sm text-muted-foreground hover:text-foreground transition-colors py-2.5 px-4 rounded-lg hover:bg-secondary/50"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {sublink.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href!}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors py-3 px-4 rounded-lg hover:bg-secondary/50"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
             <div className="flex flex-col gap-3 pt-6 mt-4 border-t border-border/50">
               <Button
