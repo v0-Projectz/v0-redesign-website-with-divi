@@ -25,12 +25,10 @@ export function Footer() {
   return (
     <footer 
       id="msc-footer" 
-      className="border-t border-white/[0.05] bg-surface-0 relative msc-section"
+      className="bg-surface-0 relative msc-section"
       data-divi-section="footer"
       data-divi-modules="footer-widget"
     >
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
-      
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-16">
           {/* Brand */}

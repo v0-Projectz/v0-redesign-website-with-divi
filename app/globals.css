@@ -284,9 +284,16 @@ html {
    for easier WordPress/Divi conversion
    =================================================== */
 
-/* Section marker class */
+/* Section marker class — 1px solid divider between every section */
 .msc-section {
   position: relative;
+  border-top: 1px solid #4c4c4c;
+}
+
+/* Hero sits flush at the top of the page — no top border */
+#msc-hero,
+#msc-header {
+  border-top: none;
 }
 
 /* Surface background classes (hex fallbacks for WordPress) */
