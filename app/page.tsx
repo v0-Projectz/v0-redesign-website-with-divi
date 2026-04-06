@@ -2,7 +2,9 @@ import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
 import { ServicesSection } from "@/components/services-section"
+import { OwnPlatformSection } from "@/components/own-platform-section"
 import { PackagesSection } from "@/components/packages-section"
+import { RequirementsSection } from "@/components/requirements-section"
 import { DemosSection } from "@/components/demos-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { ProcessSection } from "@/components/process-section"
@@ -17,7 +19,9 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
+      <OwnPlatformSection />
       <PackagesSection />
+      <RequirementsSection />
       <DemosSection />
       <TestimonialsSection />
       <ProcessSection />
