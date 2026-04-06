@@ -58,7 +58,12 @@ export function RequirementsSection() {
   const [activeItem, setActiveItem] = useState<number | null>(null)
 
   return (
-    <section id="requirements" className="py-32 relative overflow-hidden bg-surface-1">
+    <section 
+      id="msc-requirements" 
+      className="py-32 relative overflow-hidden bg-surface-1 msc-section msc-surface-1"
+      data-divi-section="requirements"
+      data-divi-modules="text,blurb,image"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[oklch(0.10_0.004_260)] to-transparent" />
@@ -197,7 +202,7 @@ export function RequirementsSection() {
             </div>
             <div className="flex-shrink-0">
               <a
-                href="#contact"
+                href="#msc-contact"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent text-accent-foreground font-medium hover:bg-accent/90 transition-all duration-300 glow-accent-sm hover:glow-accent"
               >
                 Get Started

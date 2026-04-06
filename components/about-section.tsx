@@ -28,7 +28,12 @@ const features = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 lg:py-32 relative bg-surface-1">
+    <section 
+      id="msc-about" 
+      className="py-24 lg:py-32 relative bg-surface-1 msc-section msc-surface-1"
+      data-divi-section="about"
+      data-divi-modules="text,blurb,image"
+    >
       {/* Subtle top/bottom edge fades to blend with adjacent sections */}
       <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[oklch(0.10_0.004_260)] to-transparent pointer-events-none" />
       <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[oklch(0.10_0.004_260)] to-transparent pointer-events-none" />
@@ -65,7 +70,7 @@ export function AboutSection() {
 
             <div className="mt-8 flex items-center gap-4">
               <a 
-                href="#contact" 
+                href="#msc-contact" 
                 className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-colors"
               >
                 Learn more about our process

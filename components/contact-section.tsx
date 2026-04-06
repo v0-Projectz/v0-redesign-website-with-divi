@@ -28,7 +28,12 @@ const contactInfo = [
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-24 lg:py-32 relative bg-surface-2">
+    <section 
+      id="msc-contact" 
+      className="py-24 lg:py-32 relative bg-surface-2 msc-section msc-surface-2"
+      data-divi-section="contact"
+      data-divi-modules="contact-form,text"
+    >
       <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[oklch(0.10_0.004_260)] to-transparent pointer-events-none" />
       
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">

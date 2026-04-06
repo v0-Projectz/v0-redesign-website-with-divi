@@ -59,7 +59,12 @@ const packages = [
 
 export function PackagesSection() {
   return (
-    <section id="packages" className="py-24 lg:py-32 relative bg-surface-0">
+    <section 
+      id="msc-packages" 
+      className="py-24 lg:py-32 relative bg-surface-0 msc-section msc-surface-0"
+      data-divi-section="packages"
+      data-divi-modules="pricing-tables"
+    >
       <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[oklch(0.165_0.005_260)] to-transparent pointer-events-none" />
       
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">

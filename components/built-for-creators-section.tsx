@@ -33,7 +33,12 @@ const creatorTypes = [
 
 export function BuiltForCreatorsSection() {
   return (
-    <section className="py-24 lg:py-32 relative bg-surface-1">
+    <section 
+      id="msc-creators" 
+      className="py-24 lg:py-32 relative bg-surface-1 msc-section msc-surface-1"
+      data-divi-section="built-for-creators"
+      data-divi-modules="blurb,cta"
+    >
       <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[oklch(0.10_0.004_260)] to-transparent pointer-events-none" />
       <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[oklch(0.10_0.004_260)] to-transparent pointer-events-none" />
       
@@ -83,7 +88,7 @@ export function BuiltForCreatorsSection() {
               Book a consultation to discuss your vision.
             </p>
             <Button className="bg-accent text-accent-foreground hover:bg-accent/90 glow-accent-sm w-fit" asChild>
-              <a href="#contact">
+              <a href="#msc-contact">
                 Start Now
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>

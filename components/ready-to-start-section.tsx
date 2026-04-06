@@ -6,7 +6,13 @@ import { Button } from "@/components/ui/button"
 
 export function ReadyToStartSection() {
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden">
+    <section 
+      id="msc-cta" 
+      className="py-24 lg:py-32 relative overflow-hidden msc-section"
+      data-divi-section="ready-to-start"
+      data-divi-modules="cta,text,button"
+      data-divi-background="on-air-bg.jpg"
+    >
       {/* Darkened Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -44,7 +50,7 @@ export function ReadyToStartSection() {
               className="bg-accent text-accent-foreground hover:bg-accent/90 glow-accent px-8"
               asChild
             >
-              <a href="#contact">
+              <a href="#msc-contact">
                 Start With a Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
@@ -55,7 +61,7 @@ export function ReadyToStartSection() {
               className="border-border/50 text-foreground hover:bg-secondary/50 backdrop-blur-sm"
               asChild
             >
-              <a href="#packages">View Packages</a>
+              <a href="#msc-packages">View Packages</a>
             </Button>
           </div>
         </div>

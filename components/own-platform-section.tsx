@@ -43,7 +43,12 @@ const ecosystemItems = [
 
 export function OwnPlatformSection() {
   return (
-    <section id="own-platform" className="py-32 relative overflow-hidden bg-surface-2">
+    <section 
+      id="msc-own-platform" 
+      className="py-32 relative overflow-hidden bg-surface-2 msc-section msc-surface-2"
+      data-divi-section="own-platform"
+      data-divi-modules="text,blurb,image"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[oklch(0.10_0.004_260)] to-transparent" />

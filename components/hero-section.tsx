@@ -63,7 +63,12 @@ export function HeroSection() {
   const slide = slides[current]
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section 
+      id="msc-hero" 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden msc-section"
+      data-divi-section="hero"
+      data-divi-module="fullwidth-header"
+    >
       {/* Slides */}
       {slides.map((s, i) => (
         <div
@@ -134,7 +139,7 @@ export function HeroSection() {
               className="bg-accent text-accent-foreground hover:bg-accent/90 h-14 px-8 text-base font-semibold glow-accent-sm hover:glow-accent transition-all duration-300"
               asChild
             >
-              <a href="#contact">
+              <a href="#msc-contact">
                 Start With a Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
@@ -145,7 +150,7 @@ export function HeroSection() {
               className="border-white/20 text-foreground hover:bg-white/10 h-14 px-8 text-base font-medium backdrop-blur-sm"
               asChild
             >
-              <a href="#demos">
+              <a href="#msc-demos">
                 <Play className="mr-2 h-5 w-5 fill-current" />
                 View the Demo
               </a>

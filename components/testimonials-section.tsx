@@ -35,7 +35,12 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-24 lg:py-32 relative bg-surface-0">
+    <section 
+      id="msc-testimonials" 
+      className="py-24 lg:py-32 relative bg-surface-0 msc-section msc-surface-0"
+      data-divi-section="testimonials"
+      data-divi-modules="testimonial-slider"
+    >
       <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[oklch(0.165_0.005_260)] to-transparent pointer-events-none" />
       
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">

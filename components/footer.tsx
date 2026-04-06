@@ -5,15 +5,15 @@ import Image from "next/image"
 
 const footerLinks = {
   company: [
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Packages", href: "#packages" },
-    { label: "Demos", href: "#demos" },
+    { label: "About", href: "#msc-about" },
+    { label: "Services", href: "#msc-services" },
+    { label: "Packages", href: "#msc-packages" },
+    { label: "Demos", href: "#msc-demos" },
   ],
   resources: [
-    { label: "FAQ", href: "#faq" },
-    { label: "Testimonials", href: "#testimonials" },
-    { label: "Contact", href: "#contact" },
+    { label: "FAQ", href: "#msc-faq" },
+    { label: "Testimonials", href: "#msc-testimonials" },
+    { label: "Contact", href: "#msc-contact" },
   ],
   legal: [
     { label: "Privacy Policy", href: "#" },
@@ -23,7 +23,12 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/[0.05] bg-surface-0 relative">
+    <footer 
+      id="msc-footer" 
+      className="border-t border-white/[0.05] bg-surface-0 relative msc-section"
+      data-divi-section="footer"
+      data-divi-modules="footer-widget"
+    >
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
       
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 py-16">

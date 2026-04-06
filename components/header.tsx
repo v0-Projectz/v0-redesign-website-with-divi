@@ -8,25 +8,25 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
-  { href: "#about", label: "About" },
+  { href: "#msc-about", label: "About" },
   { 
     label: "Services",
     submenu: [
-      { href: "#services", label: "What We Do" },
-      { href: "#own-platform", label: "Own Your Platform" },
-      { href: "#packages", label: "Packages" },
-      { href: "#requirements", label: "Requirements" },
+      { href: "#msc-services", label: "What We Do" },
+      { href: "#msc-own-platform", label: "Own Your Platform" },
+      { href: "#msc-packages", label: "Packages" },
+      { href: "#msc-requirements", label: "Requirements" },
     ]
   },
-  { href: "#demos", label: "Demos" },
+  { href: "#msc-demos", label: "Demos" },
   { 
     label: "Resources",
     submenu: [
-      { href: "#testimonials", label: "Testimonials" },
-      { href: "#faq", label: "FAQ" },
+      { href: "#msc-testimonials", label: "Testimonials" },
+      { href: "#msc-faq", label: "FAQ" },
     ]
   },
-  { href: "#contact", label: "Contact" },
+  { href: "#msc-contact", label: "Contact" },
 ]
 
 export function Header() {
@@ -45,13 +45,16 @@ export function Header() {
 
   return (
     <header
+      id="msc-header"
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 msc-section",
         isScrolled
           ? "border-b border-white/[0.06]"
           : "bg-transparent"
       )}
       style={isScrolled ? { backgroundColor: "rgba(13,13,15,0.92)", backdropFilter: "blur(18px)", WebkitBackdropFilter: "blur(18px)" } : undefined}
+      data-divi-section="header"
+      data-divi-modules="global-header"
     >
       <div className="w-full px-6 lg:px-12">
         <div className="flex h-20 items-center justify-between">
@@ -131,10 +134,10 @@ export function Header() {
               className="text-muted-foreground hover:text-foreground hover:bg-secondary/50"
               asChild
             >
-              <a href="#demos">View Demo</a>
+              <a href="#msc-demos">View Demo</a>
             </Button>
             <Button className="bg-accent text-accent-foreground hover:bg-accent/90 glow-accent-sm hover:glow-accent transition-all duration-300" asChild>
-              <a href="#contact">
+              <a href="#msc-contact">
                 Book Consultation
                 <ChevronRight className="ml-1 h-4 w-4" />
               </a>
@@ -200,10 +203,10 @@ export function Header() {
                 className="border-border text-foreground hover:bg-secondary w-full justify-center"
                 asChild
               >
-                <a href="#demos" onClick={() => setIsMobileMenuOpen(false)}>View Demo</a>
+                <a href="#msc-demos" onClick={() => setIsMobileMenuOpen(false)}>View Demo</a>
               </Button>
               <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full justify-center glow-accent-sm" asChild>
-                <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                <a href="#msc-contact" onClick={() => setIsMobileMenuOpen(false)}>
                   Book Consultation
                   <ChevronRight className="ml-1 h-4 w-4" />
                 </a>

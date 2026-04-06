@@ -23,7 +23,13 @@ const benefits = [
 
 export function WhatYouGetSection() {
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden">
+    <section 
+      id="msc-benefits" 
+      className="py-24 lg:py-32 relative overflow-hidden msc-section"
+      data-divi-section="what-you-get"
+      data-divi-modules="text,blurb"
+      data-divi-background="msc-background.jpg"
+    >
       {/* Darkened Background Image */}
       <div className="absolute inset-0">
         <Image
