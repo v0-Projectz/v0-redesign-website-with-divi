@@ -38,7 +38,7 @@ export function ContactSection() {
         {/* Bento Grid Layout */}
         <div className="grid lg:grid-cols-12 gap-4 lg:gap-6">
           {/* Left - Content Card */}
-          <div className="lg:col-span-5 bento-card glass-card rounded-3xl border border-border/50 p-8 lg:p-10">
+          <div className="lg:col-span-5 bento-card glass-card rounded-3xl border border-border/50 p-6 sm:p-8 lg:p-10">
             <div className="inline-flex items-center gap-2 rounded-full bg-accent/10 border border-accent/20 px-4 py-1.5 mb-6">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               <span className="text-xs font-medium uppercase tracking-wider text-accent">
@@ -46,7 +46,7 @@ export function ContactSection() {
               </span>
             </div>
             
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl leading-tight">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground sm:text-4xl leading-tight">
               Ready to Get Started?
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
@@ -81,7 +81,7 @@ export function ContactSection() {
           </div>
 
           {/* Right - Form Card */}
-          <div className="lg:col-span-7 bento-card rounded-3xl border border-border/50 bg-card/30 p-8 lg:p-10">
+          <div className="lg:col-span-7 bento-card rounded-3xl border border-border/50 bg-card/30 p-6 sm:p-8 lg:p-10">
             <h3 className="text-xl font-bold text-foreground mb-2">
               Send a Message
             </h3>

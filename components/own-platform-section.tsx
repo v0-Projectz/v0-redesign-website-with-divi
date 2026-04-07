@@ -174,9 +174,9 @@ export function OwnPlatformSection() {
         </div>
 
         {/* Community Banner */}
-        <div className="mt-12 glass-card rounded-2xl p-8 md:p-10 border border-accent/20 bg-gradient-to-br from-accent/5 to-transparent">
+        <div className="mt-12 glass-card rounded-2xl p-6 sm:p-8 md:p-10 border border-accent/20 bg-gradient-to-br from-accent/5 to-transparent">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div className="flex items-start gap-4">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4">
               <div className="h-12 w-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center flex-shrink-0">
                 <Users className="h-6 w-6 text-accent" />
               </div>
@@ -185,7 +185,7 @@ export function OwnPlatformSection() {
                 <p className="text-muted-foreground">As your audience grows, your platform grows with you. Every My Studio Channel client receives free access to our creator community.</p>
               </div>
             </div>
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 flex justify-center md:justify-end">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>

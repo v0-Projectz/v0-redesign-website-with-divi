@@ -105,9 +105,9 @@ export function PackagesSection() {
                 </div>
               )}
 
-              <div className="mb-6 pt-2">
+              <div className="mb-6 pt-2 text-center lg:text-left">
                 <h3 className="text-xl font-bold text-foreground">{pkg.name}</h3>
-                <div className="mt-4 flex items-baseline gap-1">
+                <div className="mt-4 flex items-baseline justify-center lg:justify-start gap-1">
                   <span className={`text-4xl font-bold ${pkg.featured ? "text-accent" : "text-foreground"}`}>
                     {pkg.price}
                   </span>

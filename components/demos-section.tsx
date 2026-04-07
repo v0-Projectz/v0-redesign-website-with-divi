@@ -80,7 +80,7 @@ export function DemosSection() {
         <div className="grid lg:grid-cols-12 gap-4 lg:gap-6 lg:items-stretch">
           {/* Featured Demo - Large Card (Left Side) */}
           <div className="lg:col-span-7 bento-card group rounded-3xl border border-border/50 overflow-hidden relative">
-            <div className="aspect-video lg:aspect-auto lg:absolute lg:inset-0 relative">
+            <div className="aspect-[4/3] sm:aspect-video lg:aspect-auto lg:absolute lg:inset-0 relative">
               {/* Image with smooth transition */}
               <div className="absolute inset-0">
                 {demos.map((demo) => (
@@ -102,8 +102,8 @@ export function DemosSection() {
                 ))}
               </div>
               {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                <div className="glass rounded-2xl p-6">
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8">
+                <div className="glass rounded-2xl p-4 sm:p-6">
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-xs font-medium uppercase tracking-wider text-accent">
                       {selectedDemo.category}
@@ -148,7 +148,7 @@ export function DemosSection() {
           </div>
 
           {/* Side Stack (Right Side) - Clickable Cards */}
-          <div className="lg:col-span-5 flex flex-col gap-4">
+          <div className="lg:col-span-5 grid grid-cols-2 lg:grid-cols-1 lg:flex lg:flex-col gap-3 lg:gap-4">
             {demos.map((demo, index) => (
               <div
                 key={demo.title}
@@ -160,9 +160,9 @@ export function DemosSection() {
                     : "border-border/50 hover:border-border"
                 )}
               >
-                <div className="flex items-stretch h-full">
+                <div className="flex flex-col lg:flex-row items-stretch h-full">
                   {/* Image */}
-                  <div className="w-1/3 relative min-h-[100px]">
+                  <div className="w-full lg:w-1/3 relative min-h-[80px] lg:min-h-[100px]">
                     <Image
                       src={demo.image}
                       alt={demo.title}
@@ -178,10 +178,10 @@ export function DemosSection() {
                   </div>
                   
                   {/* Content */}
-                  <div className="flex-1 p-5 bg-card/50 flex flex-col justify-center">
+                  <div className="flex-1 p-3 lg:p-5 bg-card/50 flex flex-col justify-center">
                     <div className="flex items-center gap-2">
                       <span className={cn(
-                        "text-[10px] font-medium uppercase tracking-wider transition-colors",
+                        "text-[9px] lg:text-[10px] font-medium uppercase tracking-wider transition-colors",
                         activeDemo === index ? "text-accent" : "text-muted-foreground"
                       )}>
                         {demo.category}
@@ -191,16 +191,16 @@ export function DemosSection() {
                       )}
                     </div>
                     <h3 className={cn(
-                      "mt-1.5 font-semibold transition-colors",
+                      "mt-1 lg:mt-1.5 text-sm lg:text-base font-semibold transition-colors",
                       activeDemo === index ? "text-accent" : "text-foreground group-hover:text-accent"
                     )}>
                       {demo.title}
                     </h3>
-                    <p className="mt-1 text-xs text-muted-foreground line-clamp-2">
+                    <p className="hidden lg:block mt-1 text-xs text-muted-foreground line-clamp-2">
                       {demo.description}
                     </p>
                     <div className={cn(
-                      "mt-3 inline-flex items-center gap-1 text-xs font-medium transition-all",
+                      "mt-2 lg:mt-3 inline-flex items-center gap-1 text-[10px] lg:text-xs font-medium transition-all",
                       activeDemo === index 
                         ? "text-accent opacity-100" 
                         : "text-accent opacity-0 group-hover:opacity-100"

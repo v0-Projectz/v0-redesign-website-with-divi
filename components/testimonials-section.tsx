@@ -73,25 +73,25 @@ export function TestimonialsSection() {
               </div>
 
               {/* Rating */}
-              <div className="flex items-center gap-1 mb-4">
+              <div className="flex items-center justify-center sm:justify-start gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-accent text-accent" />
                 ))}
               </div>
 
               {/* Quote Text */}
-              <blockquote className="text-muted-foreground leading-relaxed pr-8">
+              <blockquote className="text-muted-foreground leading-relaxed pr-8 text-center sm:text-left">
                 &quot;{testimonial.quote}&quot;
               </blockquote>
 
               {/* Author */}
-              <div className="mt-6 flex items-center gap-4 pt-6 border-t border-border/50">
+              <div className="mt-6 flex flex-col sm:flex-row items-center gap-4 pt-6 border-t border-border/50">
                 <div className="h-12 w-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center">
                   <span className="text-lg font-semibold text-accent">
                     {testimonial.initials}
                   </span>
                 </div>
-                <div>
+                <div className="text-center sm:text-left">
                   <div className="font-semibold text-foreground">
                     {testimonial.author}
                   </div>

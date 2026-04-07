@@ -103,7 +103,7 @@ export function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 w-full px-6 lg:px-16 pt-32 pb-24">
+      <div className="relative z-10 w-full px-6 lg:px-16 pt-20 sm:pt-32 pb-24">
 
         {/* Hero text — centered */}
         <div
@@ -158,20 +158,20 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Arrow Controls — sides */}
+        {/* Arrow Controls — sides (hidden on very small mobile, show on sm+) */}
         <button
           onClick={prev}
-          className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-accent hover:border-accent hover:text-accent-foreground transition-all duration-300 z-20"
+          className="absolute left-2 sm:left-4 lg:left-8 top-1/2 -translate-y-1/2 h-10 w-10 sm:h-12 sm:w-12 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-accent hover:border-accent hover:text-accent-foreground transition-all duration-300 z-20"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="h-5 w-5" />
+          <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
         </button>
         <button
           onClick={next}
-          className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-accent hover:border-accent hover:text-accent-foreground transition-all duration-300 z-20"
+          className="absolute right-2 sm:right-4 lg:right-8 top-1/2 -translate-y-1/2 h-10 w-10 sm:h-12 sm:w-12 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-accent hover:border-accent hover:text-accent-foreground transition-all duration-300 z-20"
           aria-label="Next slide"
         >
-          <ChevronRight className="h-5 w-5" />
+          <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
         </button>
 
         {/* Slide Indicators — centered at bottom of text */}

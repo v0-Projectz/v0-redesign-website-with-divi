@@ -129,9 +129,9 @@ export function ServicesSection() {
         <div className="grid lg:grid-cols-12 gap-4 lg:gap-6">
           {/* Preview Visual with clickable gallery */}
           <div className="lg:col-span-7 bento-card rounded-3xl border border-border/50 overflow-hidden relative">
-            <div className="aspect-video lg:aspect-auto lg:h-full bg-card relative p-4 lg:p-5 flex flex-col gap-3">
+            <div className="aspect-[4/3] sm:aspect-video lg:aspect-auto lg:h-full bg-card relative p-3 sm:p-4 lg:p-5 flex flex-col gap-2 sm:gap-3">
               {/* Top row: large featured + 2 stacked small */}
-              <div className="flex-1 grid grid-cols-3 gap-3 min-h-0">
+              <div className="flex-1 grid grid-cols-3 gap-2 sm:gap-3 min-h-0">
                 {/* Large featured — index 0 */}
                 <button
                   onClick={() => openLightbox(0)}
@@ -148,7 +148,7 @@ export function ServicesSection() {
                   </div>
                 </button>
                 {/* 2 stacked — index 1 & 2 */}
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-2 sm:gap-3">
                   {[1, 2].map((i) => (
                     <button
                       key={i}
@@ -170,12 +170,12 @@ export function ServicesSection() {
               </div>
 
               {/* Bottom row: 4 thumbnails — index 3–6 */}
-              <div className="grid grid-cols-4 gap-3">
+              <div className="grid grid-cols-4 gap-2 sm:gap-3">
                 {[3, 4, 5, 6].map((i) => (
                   <button
                     key={i}
                     onClick={() => openLightbox(i)}
-                    className="h-[90px] rounded-lg overflow-hidden relative border border-border/30 group/thumb cursor-zoom-in"
+                    className="h-[60px] sm:h-[90px] rounded-lg overflow-hidden relative border border-border/30 group/thumb cursor-zoom-in"
                   >
                     <Image
                       src={galleryImages[i].src}
