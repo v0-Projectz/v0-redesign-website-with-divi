@@ -170,7 +170,7 @@ export function DemosSection() {
                 key={demo.id}
                 onClick={() => setActiveDemo(index)}
                 className={cn(
-                  "bento-card group rounded-2xl border overflow-hidden relative cursor-pointer transition-all duration-300 aspect-[3/4] sm:aspect-[4/3]",
+                  "bento-card group rounded-2xl border overflow-hidden relative cursor-pointer transition-all duration-300 aspect-[5/4] sm:aspect-[4/3]",
                   activeDemo === index
                     ? "border-accent/50 bg-accent/5 ring-1 ring-accent/20"
                     : "border-border/50 hover:border-border"
