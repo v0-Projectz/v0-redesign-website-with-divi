@@ -80,8 +80,8 @@ export function DemosSection() {
 
         {/* Demos Interactive Grid - New Layout: Featured + 4 Grid */}
         <div className="space-y-6">
-          {/* Featured Demo Card - Full Width */}
-          <div className="bento-card group rounded-3xl border border-border/50 overflow-hidden relative">
+          {/* Featured Demo Card - Full Width — hidden on mobile, shown on sm+ */}
+          <div className="hidden sm:block bento-card group rounded-3xl border border-border/50 overflow-hidden relative">
             <div className="aspect-[16/9] relative">
               {/* Background Image */}
               <div className="absolute inset-0">
@@ -163,14 +163,14 @@ export function DemosSection() {
             </div>
           </div>
 
-          {/* 4-Demo Grid Below */}
+          {/* 4-Demo Grid — single column on mobile, 2-col on sm+ */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
             {demos.map((demo, index) => (
               <div
                 key={demo.id}
                 onClick={() => setActiveDemo(index)}
                 className={cn(
-                  "bento-card group rounded-2xl border overflow-hidden relative cursor-pointer transition-all duration-300 aspect-[4/3] sm:aspect-square",
+                  "bento-card group rounded-2xl border overflow-hidden relative cursor-pointer transition-all duration-300 aspect-[16/9] sm:aspect-square",
                   activeDemo === index
                     ? "border-accent/50 bg-accent/5 ring-1 ring-accent/20"
                     : "border-border/50 hover:border-border"
@@ -244,8 +244,8 @@ export function DemosSection() {
           </div>
         </div>
         
-        {/* Progress Indicators - Below Grid */}
-        <div className="flex items-center justify-center gap-2 mt-8">
+        {/* Progress Indicators - Below Grid — hidden on mobile since featured card is hidden */}
+        <div className="hidden sm:flex items-center justify-center gap-2 mt-8">
           {demos.map((_, index) => (
             <button
               key={index}
