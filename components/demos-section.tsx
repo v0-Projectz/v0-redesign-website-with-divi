@@ -13,7 +13,7 @@ const demos = [
     category: "Interview Format",
     description: "Professional talk show layout with guest management, episode scheduling, and live audience interaction features.",
     image: "/images/demo-talkshow.jpg",
-    features: ["Guest Profiles", "Episode Archive", "Live Chat"],
+    features: ["Guest Profiles", "Episode Archive"],
   },
   {
     id: 1,
@@ -21,7 +21,7 @@ const demos = [
     category: "Cooking Show",
     description: "Recipe-driven content platform with ingredient lists, step-by-step guides, and meal planning integration.",
     image: "/images/demo-cooking.jpg",
-    features: ["Recipe Database", "Shopping Lists", "Video Tutorials"],
+    features: ["Recipe Database", "Shopping Lists"],
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const demos = [
     category: "Podcast Platform",
     description: "Audio-first streaming experience with playlist support, transcriptions, and subscriber management.",
     image: "/images/demo-podcast.jpg",
-    features: ["Playlist Builder", "Transcripts", "RSS Feeds"],
+    features: ["Playlist Builder", "Transcripts"],
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const demos = [
     category: "Documentary Series",
     description: "Cinematic storytelling platform with chapter navigation, behind-the-scenes content, and filmmaker profiles.",
     image: "/images/demo-documentary.jpg",
-    features: ["Chapter Navigation", "BTS Content", "Filmmaker Bios"],
+    features: ["Chapter Navigation", "BTS Content"],
   },
 ]
 
@@ -76,12 +76,12 @@ export function DemosSection() {
           </Button>
         </div>
 
-        {/* Demos Interactive Grid */}
-        <div className="grid lg:grid-cols-12 gap-4 lg:gap-6 lg:items-stretch">
-          {/* Featured Demo - Large Card (Left Side) */}
-          <div className="lg:col-span-7 bento-card group rounded-3xl border border-border/50 overflow-hidden relative">
-            <div className="aspect-[4/3] sm:aspect-video lg:aspect-auto lg:absolute lg:inset-0 relative">
-              {/* Image with smooth transition */}
+        {/* Demos Interactive Grid - New Layout: Featured + 4 Grid */}
+        <div className="space-y-6">
+          {/* Featured Demo Card - Full Width */}
+          <div className="bento-card group rounded-3xl border border-border/50 overflow-hidden relative">
+            <div className="aspect-[16/9] relative">
+              {/* Background Image */}
               <div className="absolute inset-0">
                 {demos.map((demo) => (
                   <div
@@ -101,44 +101,56 @@ export function DemosSection() {
                   </div>
                 ))}
               </div>
+
+              {/* Dark overlay for readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+
               {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-8">
-                <div className="glass rounded-2xl p-4 sm:p-5 lg:p-6">
-                  <div className="flex items-center gap-3 mb-2 sm:mb-3 lg:mb-3">
+              <div className="absolute inset-0 p-6 sm:p-8 lg:p-12 flex flex-col justify-between">
+                {/* Top - Category & Counter */}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
                     <span className="text-xs font-medium uppercase tracking-wider text-accent">
                       {selectedDemo.category}
                     </span>
-                    <span className="h-1 w-1 rounded-full bg-border" />
-                    <span className="text-xs text-muted-foreground">
-                      Demo {activeDemo + 1} of {demos.length}
-                    </span>
+                    {activeDemo !== 0 && (
+                      <span className="text-xs text-muted-foreground">
+                        Demo {activeDemo + 1} of {demos.length}
+                      </span>
+                    )}
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-foreground lg:text-2xl">
-                    {selectedDemo.title}
-                  </h3>
-                  <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed lg:text-sm">
-                    {selectedDemo.description}
-                  </p>
-                  
+                </div>
+
+                {/* Bottom - Content & CTA */}
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="text-3xl sm:text-4xl font-bold text-white">
+                      {selectedDemo.title}
+                    </h3>
+                    <p className="mt-2 text-base text-gray-200 max-w-2xl">
+                      {selectedDemo.description}
+                    </p>
+                  </div>
+
                   {/* Features */}
-                  <div className="mt-3 lg:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
+                  <div className="flex flex-wrap gap-2">
                     {selectedDemo.features.map((feature) => (
                       <span
                         key={feature}
-                        className="inline-flex items-center rounded-full bg-secondary/50 border border-border/50 px-2.5 py-1 text-[10px] sm:text-xs font-medium text-foreground lg:px-3"
+                        className="inline-flex items-center rounded-lg bg-white/10 border border-white/20 backdrop-blur-sm px-3 py-1.5 text-sm font-medium text-white"
                       >
                         {feature}
                       </span>
                     ))}
                   </div>
-                  
-                  {/* CTA */}
-                  <div className="mt-4 lg:mt-5 flex items-center gap-2 sm:gap-4">
-                    <Button size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground glow-accent text-xs sm:text-sm lg:text-sm">
+
+                  {/* CTAs */}
+                  <div className="flex flex-wrap items-center gap-4 pt-2">
+                    <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground glow-accent">
                       View Live Demo
-                      <ArrowUpRight className="ml-1.5 h-3 w-3 sm:ml-2 sm:h-4 sm:w-4" />
+                      <ArrowUpRight className="ml-2 h-4 w-4" />
                     </Button>
-                    <span className="text-[10px] sm:text-xs text-muted-foreground lg:text-xs">
+                    <span className="text-sm text-gray-300">
                       Click to explore
                     </span>
                   </div>
@@ -147,66 +159,78 @@ export function DemosSection() {
             </div>
           </div>
 
-          {/* Side Stack (Right Side) - Clickable Cards */}
-          <div className="lg:col-span-5 grid grid-cols-2 lg:grid-cols-1 lg:flex lg:flex-col gap-3 lg:gap-4">
+          {/* 4-Demo Grid Below */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
             {demos.map((demo, index) => (
               <div
-                key={demo.title}
+                key={demo.id}
                 onClick={() => setActiveDemo(index)}
                 className={cn(
-                  "bento-card group rounded-2xl border overflow-hidden relative cursor-pointer transition-all duration-300",
+                  "bento-card group rounded-2xl border overflow-hidden relative cursor-pointer transition-all duration-300 aspect-square",
                   activeDemo === index
                     ? "border-accent/50 bg-accent/5 ring-1 ring-accent/20"
                     : "border-border/50 hover:border-border"
                 )}
               >
-                <div className="flex flex-col lg:flex-row items-stretch h-full">
-                  {/* Image */}
-                  <div className="w-full lg:w-1/3 relative min-h-[100px] lg:min-h-[120px]">
-                    <Image
-                      src={demo.image}
-                      alt={demo.title}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent to-card/80" />
-                    
-                    {/* Active Indicator */}
+                {/* Image Background */}
+                <div className="absolute inset-0">
+                  <Image
+                    src={demo.image}
+                    alt={demo.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                </div>
+
+                {/* Content */}
+                <div className="absolute inset-0 p-4 sm:p-5 lg:p-6 flex flex-col justify-between">
+                  {/* Category */}
+                  <div className="flex items-center gap-2">
+                    <span className={cn(
+                      "text-[10px] font-medium uppercase tracking-wider transition-colors",
+                      activeDemo === index ? "text-accent" : "text-muted-foreground"
+                    )}>
+                      {demo.category}
+                    </span>
                     {activeDemo === index && (
-                      <div className="absolute inset-0 bg-accent/10 border-2 border-accent/40 rounded-none" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
                     )}
                   </div>
-                  
-                  {/* Content */}
-                  <div className="flex-1 p-3 sm:p-4 lg:p-5 bg-card/50 flex flex-col justify-center">
-                    <div className="flex items-center gap-2">
-                      <span className={cn(
-                        "text-[8px] sm:text-[9px] lg:text-[10px] font-medium uppercase tracking-wider transition-colors",
-                        activeDemo === index ? "text-accent" : "text-muted-foreground"
-                      )}>
-                        {demo.category}
-                      </span>
-                      {activeDemo === index && (
-                        <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-                      )}
-                    </div>
+
+                  {/* Title & Description */}
+                  <div>
                     <h3 className={cn(
-                      "mt-1.5 sm:mt-2 text-sm sm:text-base font-semibold transition-colors lg:text-base",
-                      activeDemo === index ? "text-accent" : "text-foreground group-hover:text-accent"
+                      "text-lg sm:text-xl font-semibold transition-colors",
+                      activeDemo === index ? "text-accent" : "text-white group-hover:text-accent"
                     )}>
                       {demo.title}
                     </h3>
-                    <p className="hidden lg:block mt-1 text-xs text-muted-foreground line-clamp-2 lg:mt-2">
+                    <p className="mt-1.5 text-xs sm:text-sm text-gray-300 line-clamp-2">
                       {demo.description}
                     </p>
+
+                    {/* Features */}
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {demo.features.slice(0, 2).map((feature) => (
+                        <span
+                          key={feature}
+                          className="inline-flex text-[10px] font-medium px-2 py-1 rounded bg-white/10 text-white border border-white/20"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* CTA Link */}
                     <div className={cn(
-                      "mt-2 sm:mt-2.5 lg:mt-3 inline-flex items-center gap-1 text-[9px] sm:text-[10px] lg:text-xs font-medium transition-all",
+                      "mt-3 inline-flex items-center gap-1 text-xs font-medium transition-all",
                       activeDemo === index 
                         ? "text-accent opacity-100" 
                         : "text-accent opacity-0 group-hover:opacity-100"
                     )}>
                       {activeDemo === index ? "Currently Viewing" : "View Demo"}
-                      <ArrowUpRight className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
+                      <ArrowUpRight className="h-3 w-3" />
                     </div>
                   </div>
                 </div>
@@ -215,17 +239,17 @@ export function DemosSection() {
           </div>
         </div>
         
-        {/* Progress Indicators */}
+        {/* Progress Indicators - Below Grid */}
         <div className="flex items-center justify-center gap-2 mt-8">
           {demos.map((_, index) => (
             <button
               key={index}
               onClick={() => setActiveDemo(index)}
               className={cn(
-                "h-2 rounded-full transition-all duration-300",
+                "h-2.5 rounded-full transition-all duration-300 cursor-pointer",
                 activeDemo === index 
                   ? "w-8 bg-accent" 
-                  : "w-2 bg-border hover:bg-muted-foreground"
+                  : "w-2.5 bg-border hover:bg-muted-foreground"
               )}
               aria-label={`View demo ${index + 1}`}
             />
