@@ -66,7 +66,7 @@ export function AboutSection() {
 
             <div className="mt-8 flex items-center gap-4">
               <a 
-                href="#msc-contact" 
+                href="#msc-process" 
                 className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-colors"
               >
                 Learn more about our process

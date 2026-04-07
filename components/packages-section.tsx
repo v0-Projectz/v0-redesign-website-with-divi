@@ -147,9 +147,12 @@ export function PackagesSection() {
                       ? "bg-accent text-accent-foreground hover:bg-accent/90 glow-accent-sm"
                       : "bg-secondary/50 text-foreground hover:bg-secondary/80 border border-border/50"
                   }`}
+                  asChild
                 >
-                  Get Started
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <a href="#msc-contact">
+                    Get Started
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </a>
                 </Button>
               </div>
             </div>

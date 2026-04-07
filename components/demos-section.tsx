@@ -70,9 +70,11 @@ export function DemosSection() {
               websites we&apos;ve been building. More projects launching soon.
             </p>
           </div>
-          <Button variant="outline" className="border-border/50 text-foreground hover:bg-secondary/50 w-fit glass">
-            View All Demos
-            <ArrowUpRight className="ml-2 h-4 w-4" />
+          <Button variant="outline" className="border-border/50 text-foreground hover:bg-secondary/50 w-fit glass" asChild>
+            <a href="#msc-demos">
+              View All Demos
+              <ArrowUpRight className="ml-2 h-4 w-4" />
+            </a>
           </Button>
         </div>
 
@@ -146,9 +148,11 @@ export function DemosSection() {
 
                   {/* CTAs */}
                   <div className="flex flex-wrap items-center gap-4 pt-2">
-                    <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground glow-accent">
-                      View Live Demo
-                      <ArrowUpRight className="ml-2 h-4 w-4" />
+                    <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground glow-accent" asChild>
+                      <a href="#" data-demo-link={selectedDemo.id}>
+                        View Live Demo
+                        <ArrowUpRight className="ml-2 h-4 w-4" />
+                      </a>
                     </Button>
                     <span className="text-sm text-gray-300">
                       Click to explore
@@ -166,7 +170,7 @@ export function DemosSection() {
                 key={demo.id}
                 onClick={() => setActiveDemo(index)}
                 className={cn(
-                  "bento-card group rounded-2xl border overflow-hidden relative cursor-pointer transition-all duration-300 aspect-square",
+                  "bento-card group rounded-2xl border overflow-hidden relative cursor-pointer transition-all duration-300 aspect-[4/3] sm:aspect-square",
                   activeDemo === index
                     ? "border-accent/50 bg-accent/5 ring-1 ring-accent/20"
                     : "border-border/50 hover:border-border"
@@ -180,16 +184,17 @@ export function DemosSection() {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+                  {/* Enhanced gradient overlay for better text legibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
                 </div>
 
                 {/* Content */}
-                <div className="absolute inset-0 p-4 sm:p-5 lg:p-6 flex flex-col justify-between">
+                <div className="absolute inset-0 p-5 sm:p-5 lg:p-6 flex flex-col justify-between">
                   {/* Category */}
                   <div className="flex items-center gap-2">
                     <span className={cn(
-                      "text-[10px] font-medium uppercase tracking-wider transition-colors",
-                      activeDemo === index ? "text-accent" : "text-muted-foreground"
+                      "text-[10px] sm:text-xs font-medium uppercase tracking-wider transition-colors",
+                      activeDemo === index ? "text-accent" : "text-gray-300"
                     )}>
                       {demo.category}
                     </span>
@@ -201,21 +206,21 @@ export function DemosSection() {
                   {/* Title & Description */}
                   <div>
                     <h3 className={cn(
-                      "text-lg sm:text-xl font-semibold transition-colors",
+                      "text-xl sm:text-xl lg:text-2xl font-bold transition-colors drop-shadow-md",
                       activeDemo === index ? "text-accent" : "text-white group-hover:text-accent"
                     )}>
                       {demo.title}
                     </h3>
-                    <p className="mt-1.5 text-xs sm:text-sm text-gray-300 line-clamp-2">
+                    <p className="mt-2 text-sm text-gray-200 line-clamp-2 drop-shadow-sm">
                       {demo.description}
                     </p>
 
                     {/* Features */}
-                    <div className="mt-3 flex flex-wrap gap-1.5">
+                    <div className="mt-3 flex flex-wrap gap-2">
                       {demo.features.slice(0, 2).map((feature) => (
                         <span
                           key={feature}
-                          className="inline-flex text-[10px] font-medium px-2 py-1 rounded bg-white/10 text-white border border-white/20"
+                          className="inline-flex text-xs font-medium px-2.5 py-1 rounded bg-black/40 text-white border border-white/30 backdrop-blur-sm"
                         >
                           {feature}
                         </span>

@@ -187,18 +187,18 @@ export function RequirementsSection() {
         </div>
 
         {/* Guidance Note */}
-        <div className="glass-card rounded-2xl p-8 border border-accent/20 bg-gradient-to-br from-accent/5 to-transparent">
+        <div className="glass-card rounded-2xl p-6 sm:p-8 border border-accent/20 bg-gradient-to-br from-accent/5 to-transparent">
           <div className="flex flex-col md:flex-row md:items-center gap-6">
-            <div className="flex items-center gap-4 flex-1">
+            <div className="flex items-start sm:items-center gap-4 flex-1">
               <div className="h-12 w-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center flex-shrink-0">
                 <Sparkles className="h-6 w-6 text-accent" />
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-1">Don&apos;t have everything ready?</h3>
-                <p className="text-muted-foreground">Thumbnail and artwork creation is available as an add-on. We&apos;ll guide you through each step of the process.</p>
+                <p className="text-muted-foreground text-sm sm:text-base">Thumbnail and artwork creation is available as an add-on. We&apos;ll guide you through each step of the process.</p>
               </div>
             </div>
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 flex justify-center md:justify-end">
               <a
                 href="#msc-contact"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent text-accent-foreground font-medium hover:bg-accent/90 transition-all duration-300 glow-accent-sm hover:glow-accent"

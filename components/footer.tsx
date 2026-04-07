@@ -16,8 +16,8 @@ const footerLinks = {
     { label: "Contact", href: "#msc-contact" },
   ],
   legal: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms of Service", href: "/terms-of-service" },
   ],
 }
 

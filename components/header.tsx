@@ -58,9 +58,9 @@ export function Header() {
     >
       <div className="w-full px-6 lg:px-12">
         <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative h-10 w-10">
+          {/* Logo - Always show full branding */}
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group">
+            <div className="relative h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
               <Image
                 src="/images/msc-icon.png"
                 alt="MSC Logo"
@@ -68,11 +68,11 @@ export function Header() {
                 className="object-contain group-hover:drop-shadow-lg transition-all duration-300"
               />
             </div>
-            <div className="hidden sm:block">
-              <span className="text-base font-semibold tracking-tight text-foreground">
+            <div>
+              <span className="text-sm sm:text-base font-semibold tracking-tight text-foreground block">
                 My Studio Channel
               </span>
-              <span className="block text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium">
+              <span className="block text-[8px] sm:text-[10px] uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground font-medium">
                 Creator Platforms
               </span>
             </div>

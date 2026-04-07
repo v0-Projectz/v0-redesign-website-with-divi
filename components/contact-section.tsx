@@ -74,9 +74,11 @@ export function ContactSection() {
             </div>
 
             {/* Schedule CTA */}
-            <Button className="mt-6 sm:mt-8 w-full bg-accent text-accent-foreground hover:bg-accent/90 h-12 sm:h-14 text-sm sm:text-base font-semibold glow-accent-sm hover:glow-accent transition-all duration-300">
-              Schedule a Call
-              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+            <Button className="mt-6 sm:mt-8 w-full bg-accent text-accent-foreground hover:bg-accent/90 h-12 sm:h-14 text-sm sm:text-base font-semibold glow-accent-sm hover:glow-accent transition-all duration-300" asChild>
+              <a href="#msc-contact">
+                Schedule a Call
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+              </a>
             </Button>
           </div>
 
