@@ -67,8 +67,8 @@ export function TestimonialsSection() {
                 index === 0 ? "glass-card" : "bg-card/30"
               }`}
             >
-              {/* Quote Icon */}
-              <div className="absolute top-6 right-6 lg:top-8 lg:right-8">
+              {/* Quote Icon - hidden on mobile to allow better centering */}
+              <div className="hidden lg:block absolute top-6 right-6 lg:top-8 lg:right-8">
                 <Quote className="h-8 w-8 text-accent/20" />
               </div>
 
@@ -80,7 +80,7 @@ export function TestimonialsSection() {
               </div>
 
               {/* Quote Text */}
-              <blockquote className="text-muted-foreground leading-relaxed pr-8 text-center sm:text-left">
+              <blockquote className="text-muted-foreground leading-relaxed text-center text-sm sm:text-base">
                 &quot;{testimonial.quote}&quot;
               </blockquote>
 

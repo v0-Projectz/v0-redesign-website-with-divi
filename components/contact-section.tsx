@@ -55,28 +55,28 @@ export function ContactSection() {
             </p>
 
             {/* Contact Info */}
-            <div className="mt-10 space-y-4">
+            <div className="mt-8 lg:mt-10 space-y-3 lg:space-y-4">
               {contactInfo.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-secondary/30 border border-border/50 hover:border-accent/30 transition-all duration-300 group"
+                  className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-2xl bg-secondary/30 border border-border/50 hover:border-accent/30 transition-all duration-300 group"
                 >
-                  <div className="h-12 w-12 rounded-xl bg-secondary/50 border border-border/50 flex items-center justify-center group-hover:bg-accent/10 group-hover:border-accent/30 transition-all duration-300">
-                    <item.icon className="h-5 w-5 text-muted-foreground group-hover:text-accent transition-colors" />
+                  <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-secondary/50 border border-border/50 flex items-center justify-center group-hover:bg-accent/10 group-hover:border-accent/30 transition-all duration-300 flex-shrink-0">
+                    <item.icon className="h-4 w-4 sm:h-5 sm:w-5 text-muted-foreground group-hover:text-accent transition-colors" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <div className="text-xs text-muted-foreground uppercase tracking-wider font-medium">{item.label}</div>
-                    <div className="font-medium text-foreground group-hover:text-accent transition-colors">{item.value}</div>
+                    <div className="font-medium text-foreground group-hover:text-accent transition-colors text-sm truncate">{item.value}</div>
                   </div>
                 </a>
               ))}
             </div>
 
             {/* Schedule CTA */}
-            <Button className="mt-8 w-full bg-accent text-accent-foreground hover:bg-accent/90 h-14 text-base font-semibold glow-accent-sm hover:glow-accent transition-all duration-300">
+            <Button className="mt-6 sm:mt-8 w-full bg-accent text-accent-foreground hover:bg-accent/90 h-12 sm:h-14 text-sm sm:text-base font-semibold glow-accent-sm hover:glow-accent transition-all duration-300">
               Schedule a Call
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
             </Button>
           </div>
 
@@ -89,64 +89,64 @@ export function ContactSection() {
               Fill out the form below and we&apos;ll get back to you within 24 hours.
             </p>
             
-            <form className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
+            <form className="space-y-4 sm:space-y-6">
+              <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="firstName" className="block text-xs sm:text-sm font-medium text-foreground mb-2">
                     First Name
                   </label>
                   <Input
                     id="firstName"
                     placeholder="John"
-                    className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground/50 h-12 rounded-xl focus:border-accent/50 focus:ring-accent/20"
+                    className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground/50 h-10 sm:h-12 rounded-xl focus:border-accent/50 focus:ring-accent/20 text-sm"
                   />
                 </div>
                 <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium text-foreground mb-2">
+                  <label htmlFor="lastName" className="block text-xs sm:text-sm font-medium text-foreground mb-2">
                     Last Name
                   </label>
                   <Input
                     id="lastName"
                     placeholder="Doe"
-                    className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground/50 h-12 rounded-xl focus:border-accent/50 focus:ring-accent/20"
+                    className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground/50 h-10 sm:h-12 rounded-xl focus:border-accent/50 focus:ring-accent/20 text-sm"
                   />
                 </div>
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-foreground mb-2">
                   Email Address
                 </label>
                 <Input
                   id="email"
                   type="email"
                   placeholder="john@example.com"
-                  className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground/50 h-12 rounded-xl focus:border-accent/50 focus:ring-accent/20"
+                  className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground/50 h-10 sm:h-12 rounded-xl focus:border-accent/50 focus:ring-accent/20 text-sm"
                 />
               </div>
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
+                <label htmlFor="subject" className="block text-xs sm:text-sm font-medium text-foreground mb-2">
                   Subject
                 </label>
                 <Input
                   id="subject"
                   placeholder="What's this about?"
-                  className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground/50 h-12 rounded-xl focus:border-accent/50 focus:ring-accent/20"
+                  className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground/50 h-10 sm:h-12 rounded-xl focus:border-accent/50 focus:ring-accent/20 text-sm"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                <label htmlFor="message" className="block text-xs sm:text-sm font-medium text-foreground mb-2">
                   Message
                 </label>
                 <Textarea
                   id="message"
                   placeholder="Tell us about your project..."
-                  rows={5}
-                  className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground/50 resize-none rounded-xl focus:border-accent/50 focus:ring-accent/20"
+                  rows={4}
+                  className="bg-secondary/30 border-border/50 text-foreground placeholder:text-muted-foreground/50 resize-none rounded-xl focus:border-accent/50 focus:ring-accent/20 text-sm"
                 />
               </div>
-              <Button type="submit" className="w-full bg-secondary/50 text-foreground hover:bg-secondary/80 border border-border/50 h-14 text-base font-semibold">
+              <Button type="submit" className="w-full bg-secondary/50 text-foreground hover:bg-secondary/80 border border-border/50 h-12 sm:h-14 text-sm sm:text-base font-semibold">
                 Send Message
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
             </form>
           </div>

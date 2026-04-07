@@ -102,9 +102,9 @@ export function DemosSection() {
                 ))}
               </div>
               {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8">
-                <div className="glass rounded-2xl p-4 sm:p-6">
-                  <div className="flex items-center gap-3 mb-3">
+              <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-8">
+                <div className="glass rounded-2xl p-4 sm:p-5 lg:p-6">
+                  <div className="flex items-center gap-3 mb-2 sm:mb-3 lg:mb-3">
                     <span className="text-xs font-medium uppercase tracking-wider text-accent">
                       {selectedDemo.category}
                     </span>
@@ -113,19 +113,19 @@ export function DemosSection() {
                       Demo {activeDemo + 1} of {demos.length}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-foreground">
+                  <h3 className="text-xl sm:text-2xl font-bold text-foreground lg:text-2xl">
                     {selectedDemo.title}
                   </h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                  <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed lg:text-sm">
                     {selectedDemo.description}
                   </p>
                   
                   {/* Features */}
-                  <div className="mt-4 flex flex-wrap gap-2">
+                  <div className="mt-3 lg:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
                     {selectedDemo.features.map((feature) => (
                       <span
                         key={feature}
-                        className="inline-flex items-center rounded-full bg-secondary/50 border border-border/50 px-3 py-1 text-xs font-medium text-foreground"
+                        className="inline-flex items-center rounded-full bg-secondary/50 border border-border/50 px-2.5 py-1 text-[10px] sm:text-xs font-medium text-foreground lg:px-3"
                       >
                         {feature}
                       </span>
@@ -133,12 +133,12 @@ export function DemosSection() {
                   </div>
                   
                   {/* CTA */}
-                  <div className="mt-5 flex items-center gap-4">
-                    <Button size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground glow-accent">
+                  <div className="mt-4 lg:mt-5 flex items-center gap-2 sm:gap-4">
+                    <Button size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground glow-accent text-xs sm:text-sm lg:text-sm">
                       View Live Demo
-                      <ArrowUpRight className="ml-2 h-4 w-4" />
+                      <ArrowUpRight className="ml-1.5 h-3 w-3 sm:ml-2 sm:h-4 sm:w-4" />
                     </Button>
-                    <span className="text-xs text-muted-foreground">
+                    <span className="text-[10px] sm:text-xs text-muted-foreground lg:text-xs">
                       Click to explore
                     </span>
                   </div>
@@ -162,7 +162,7 @@ export function DemosSection() {
               >
                 <div className="flex flex-col lg:flex-row items-stretch h-full">
                   {/* Image */}
-                  <div className="w-full lg:w-1/3 relative min-h-[80px] lg:min-h-[100px]">
+                  <div className="w-full lg:w-1/3 relative min-h-[100px] lg:min-h-[120px]">
                     <Image
                       src={demo.image}
                       alt={demo.title}
@@ -178,10 +178,10 @@ export function DemosSection() {
                   </div>
                   
                   {/* Content */}
-                  <div className="flex-1 p-3 lg:p-5 bg-card/50 flex flex-col justify-center">
+                  <div className="flex-1 p-3 sm:p-4 lg:p-5 bg-card/50 flex flex-col justify-center">
                     <div className="flex items-center gap-2">
                       <span className={cn(
-                        "text-[9px] lg:text-[10px] font-medium uppercase tracking-wider transition-colors",
+                        "text-[8px] sm:text-[9px] lg:text-[10px] font-medium uppercase tracking-wider transition-colors",
                         activeDemo === index ? "text-accent" : "text-muted-foreground"
                       )}>
                         {demo.category}
@@ -191,22 +191,22 @@ export function DemosSection() {
                       )}
                     </div>
                     <h3 className={cn(
-                      "mt-1 lg:mt-1.5 text-sm lg:text-base font-semibold transition-colors",
+                      "mt-1.5 sm:mt-2 text-sm sm:text-base font-semibold transition-colors lg:text-base",
                       activeDemo === index ? "text-accent" : "text-foreground group-hover:text-accent"
                     )}>
                       {demo.title}
                     </h3>
-                    <p className="hidden lg:block mt-1 text-xs text-muted-foreground line-clamp-2">
+                    <p className="hidden lg:block mt-1 text-xs text-muted-foreground line-clamp-2 lg:mt-2">
                       {demo.description}
                     </p>
                     <div className={cn(
-                      "mt-2 lg:mt-3 inline-flex items-center gap-1 text-[10px] lg:text-xs font-medium transition-all",
+                      "mt-2 sm:mt-2.5 lg:mt-3 inline-flex items-center gap-1 text-[9px] sm:text-[10px] lg:text-xs font-medium transition-all",
                       activeDemo === index 
                         ? "text-accent opacity-100" 
                         : "text-accent opacity-0 group-hover:opacity-100"
                     )}>
                       {activeDemo === index ? "Currently Viewing" : "View Demo"}
-                      <ArrowUpRight className="h-3 w-3" />
+                      <ArrowUpRight className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
                     </div>
                   </div>
                 </div>
